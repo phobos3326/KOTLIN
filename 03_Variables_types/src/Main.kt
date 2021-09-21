@@ -1,39 +1,38 @@
-    fun main() {
+fun main() {
 
 
-        var firstName = "Andrey"
-        var lastName = "Adamov"
-        var height = 140.0
-        var weight = 38f
-        var isChild = false
+    val firstName = "Andrey"
+    val lastName = "Adamov"
+    var height: Double
+    val weight: Float
+    var isChild = false
+
+    height = 178.0
+    weight = 75f
+
+    isChild = height <= 150.0 && weight <= 40f
+    var info: String = """
+            | First Name: $firstName, 
+            | Last Name: $lastName, 
+            | Height: $height, 
+            | Weight: $weight,
+            | isChild: $isChild""".trimMargin()
+
+    println(info)
+    println()
+
+    height = 190.0
+
+    isChild = height <= 150.0 && weight <= 40f
+    info = """
+            | First Name: $firstName, 
+            | Last Name: $lastName, 
+            | Height: $height, 
+            | Weight: $weight,
+            | isChild: $isChild""".trimMargin()
 
 
-
-        isChild = height <= 150 || weight <= 40
-        var info = """
-        | First Name: $firstName, 
-        | Last Name: $lastName, 
-        | Height: $height, 
-        | Weight: $weight,
-        | isChild: $isChild""".trimMargin()
-
-        println(info)
+    println(info)
 
 
-
-        height = 200.0
-        weight = 100f
-
-        isChild = height <= 150.0 && weight <= 38f
-
-        println(
-            """
-        | First Name: $firstName, 
-        | Last Name: $lastName, 
-        | Height: $height, 
-        | Weight: $weight,
-        | isChild: $isChild""".trimMargin()
-        )
-
-
-    }
+}
