@@ -7,7 +7,7 @@ fun main() {
     var height = 178.0
     val weight = 75f
 
-    var isChild:Boolean = height < 150.0 && weight < 40f
+    var isChild:Boolean = height < 150.0 || weight < 40f
     var info: String = """
             | First Name: $firstName, 
             | Last Name: $lastName, 
@@ -20,7 +20,7 @@ fun main() {
 
     height = 190.0
 
-    isChild = height < 150.0 && weight < 40f
+    isChild = height < 150.0 || weight < 40f
     info = """
             | First Name: $firstName, 
             | Last Name: $lastName, 
