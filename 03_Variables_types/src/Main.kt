@@ -3,14 +3,11 @@ fun main() {
 
     val firstName = "Andrey"
     val lastName = "Adamov"
-    var height: Double
-    val weight: Float
-    var isChild = false
 
-    height = 178.0
-    weight = 75f
+    var height = 178.0
+    val weight = 75f
 
-    isChild = height <= 150.0 && weight <= 40f
+    var isChild:Boolean = height < 150.0 && weight < 40f
     var info: String = """
             | First Name: $firstName, 
             | Last Name: $lastName, 
@@ -23,7 +20,7 @@ fun main() {
 
     height = 190.0
 
-    isChild = height <= 150.0 && weight <= 40f
+    isChild = height < 150.0 && weight < 40f
     info = """
             | First Name: $firstName, 
             | Last Name: $lastName, 
