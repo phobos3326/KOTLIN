@@ -52,16 +52,16 @@ for (i in 0 until size) {
 
 fun main() {
     val reader = BufferedReader(InputStreamReader(System.`in`))
-    val map: MutableMap<String, Int> = HashMap()
+    val map: MutableMap<Any, Any> = HashMap()
     while (true) {
         val id = reader.readLine()
         if (id == "") break
         val name = reader.readLine()
         if (name == "") break
-        map[name] = id.toInt()
+        map[name] = id
     }
 
     for ((k, v) in map) {
-        println("$k: $v")
+        println("Абонент: $k. Номер телефона: $v")
     }
 }
