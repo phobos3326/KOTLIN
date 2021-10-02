@@ -1,8 +1,7 @@
-
 import java.io.BufferedReader
-import java.io.IOException
 import java.io.InputStreamReader
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 /*
@@ -13,10 +12,6 @@ fun main() {
 
 }
 */
-
-
-
-
 
 /*
 fun main() {
@@ -36,21 +31,36 @@ for (i in 0 until size) {
 */
 
 
-/*fun main() {
+fun main() {
+
+
     val input = Scanner(System.`in`) // Объявляем Scanner
     println("Enter array length: ")
+
+
     val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
-    val subArray2: MutableMap<Any, Any>  // Создаём массив int размером в size
+    val subArray2: MutableList<Int> = ArrayList() // Создаём массив int размером в size
     println("Insert array elements:")
-    *//*Пройдёмся по всему массиву, заполняя его*//*for (i in 0 until size) {
-        subArray2.put(input, input) // Заполняем массив элементами, введёнными с клавиатуры
+    //Пройдёмся по всему массиву, заполняя его
+    for (i in 0 until size) {
+        subArray2.add(input.nextInt()) // Заполняем массив элементами, введёнными с клавиатуры
     }
     print("Inserted array elements:")
-    println(SubArray2)
-}*/
+    println(subArray2)
+}
 
 
-fun main() {
+
+
+
+fun main1() {
+    do {
+        println("Ведите размер списка")
+        var n = readLine()?.toIntOrNull() ?: return
+
+    } while (n <= 0)
+
+
     val reader = BufferedReader(InputStreamReader(System.`in`))
     val map: MutableMap<Any, Any> = HashMap()
     while (true) {
@@ -64,4 +74,10 @@ fun main() {
     for ((k, v) in map) {
         println("Абонент: $k. Номер телефона: $v")
     }
+}
+
+
+fun inputMap() {
+
+
 }
