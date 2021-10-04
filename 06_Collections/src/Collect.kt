@@ -3,20 +3,17 @@ import java.io.InputStreamReader
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-/*
-fun main() {
-    var input = readLine()?.toIntOrNull() ?: return
-    var size = input.nextInt()
-
-
-}
-*/
-
 fun main() {
     val input = Scanner(System.`in`) // Объявляем Scanner
     println("Enter array length: ")
     val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
+
+    inputFun(size)
+    funMutableMap()
+}
+
+fun inputFun(size: Int): MutableList<String> {
+    val input = Scanner(System.`in`)
     val data: MutableList<String> = ArrayList() // Создаём массив int размером в size
     println("Insert array elements:")
     for (i in 0 until size) {//Пройдёмся по всему массиву, заполняя его
@@ -24,18 +21,24 @@ fun main() {
     }
     print("Inserted array elements:")
     println(data)
+
+    val filterData = data.filter { it.contains("+7") }
+    println("""Номера телефонов начинающиеся с "+7" $filterData""")
+
+    val toSetData = data.toSet()
+    println("Уникальные элементы массива $toSetData")
+
+    val sumData = data.sumOf { it.length }
+    println("Сумма длин всех номеров телефонов $sumData")
+
+    return filterData as MutableList<String>
+
 }
 
 
+fun funMutableMap() {
 
-
-fun main88() {
-    do {
-        println("Ведите размер списка")
-        var n = readLine()?.toIntOrNull() ?: return
-
-    } while (n <= 0)
-
+    println("Ведите номер телефона и имя абонента")
 
     val reader = BufferedReader(InputStreamReader(System.`in`))
     val map: MutableMap<Any, Any> = HashMap()
