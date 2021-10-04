@@ -15,11 +15,11 @@ fun main() {
 fun inputFun(size: Int): MutableList<String> {
     val input = Scanner(System.`in`)
     val data: MutableList<String> = ArrayList() // Создаём массив int размером в size
-    println("Insert array elements:")
+    println("Ведите количчество элементов массива:")
     for (i in 0 until size) {//Пройдёмся по всему массиву, заполняя его
         data.add(input.next()) // Заполняем массив элементами, введёнными с клавиатуры
     }
-    print("Inserted array elements:")
+    print("Введите элементы массива:")
     println(data)
 
     val filterData = data.filter { it.contains("+7") }
@@ -53,5 +53,11 @@ fun funMutableMap() {
     for ((k, v) in map) {
         println("Абонент: $k. Номер телефона: $v")
     }
+
+    val sortByNumber = map.toList().sortedBy { (_, value)-> value as Comparable<Any> }.toMap()
+    println(sortByNumber)
+
+    val sortByName = map.toList().sortedBy { (value, _)-> value as Comparable<Any> }.toMap()
+    println(sortByName)
 }
 
