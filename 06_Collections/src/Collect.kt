@@ -13,47 +13,23 @@ fun main() {
 }
 */
 
-/*
 fun main() {
     val input = Scanner(System.`in`) // Объявляем Scanner
     println("Enter array length: ")
     val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
-    val SubArray2: MutableList<String> = ArrayList() // Создаём массив int размером в size
+    val data: MutableList<String> = ArrayList() // Создаём массив int размером в size
     println("Insert array elements:")
-    */
-/*Пройдёмся по всему массиву, заполняя его*//*
-for (i in 0 until size) {
-        SubArray2.add(input.next()) // Заполняем массив элементами, введёнными с клавиатуры
+    for (i in 0 until size) {//Пройдёмся по всему массиву, заполняя его
+        data.add(input.next()) // Заполняем массив элементами, введёнными с клавиатуры
     }
     print("Inserted array elements:")
-    println(SubArray2)
-}
-*/
-
-
-fun main() {
-
-
-    val input = Scanner(System.`in`) // Объявляем Scanner
-    println("Enter array length: ")
-
-
-    val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
-    val subArray2: MutableList<Int> = ArrayList() // Создаём массив int размером в size
-    println("Insert array elements:")
-    //Пройдёмся по всему массиву, заполняя его
-    for (i in 0 until size) {
-        subArray2.add(input.nextInt()) // Заполняем массив элементами, введёнными с клавиатуры
-    }
-    print("Inserted array elements:")
-    println(subArray2)
+    println(data)
 }
 
 
 
 
-
-fun main1() {
+fun main88() {
     do {
         println("Ведите размер списка")
         var n = readLine()?.toIntOrNull() ?: return
@@ -76,8 +52,3 @@ fun main1() {
     }
 }
 
-
-fun inputMap() {
-
-
-}
