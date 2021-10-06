@@ -3,63 +3,42 @@ import java.io.InputStreamReader
 import java.util.*
 import kotlin.collections.ArrayList
 
-
-/*
-fun main() {
-    var input = readLine()?.toIntOrNull() ?: return
-    var size = input.nextInt()
-
-
-}
-*/
-
-/*
 fun main() {
     val input = Scanner(System.`in`) // Объявляем Scanner
     println("Enter array length: ")
     val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
-    val SubArray2: MutableList<String> = ArrayList() // Создаём массив int размером в size
-    println("Insert array elements:")
-    */
-/*Пройдёмся по всему массиву, заполняя его*//*
-for (i in 0 until size) {
-        SubArray2.add(input.next()) // Заполняем массив элементами, введёнными с клавиатуры
-    }
-    print("Inserted array elements:")
-    println(SubArray2)
+
+    inputFun(size)
+    funMutableMap()
 }
-*/
 
-
-fun main() {
-
-
-    val input = Scanner(System.`in`) // Объявляем Scanner
-    println("Enter array length: ")
-
-
-    val size = input.nextInt() // Читаем с клавиатуры размер массива и записываем в size
-    val subArray2: MutableList<Int> = ArrayList() // Создаём массив int размером в size
-    println("Insert array elements:")
-    //Пройдёмся по всему массиву, заполняя его
-    for (i in 0 until size) {
-        subArray2.add(input.nextInt()) // Заполняем массив элементами, введёнными с клавиатуры
+fun inputFun(size: Int): MutableList<String> {
+    val input = Scanner(System.`in`)
+    val data: MutableList<String> = ArrayList() // Создаём массив int размером в size
+    println("Ведите количчество элементов массива:")
+    for (i in 0 until size) {//Пройдёмся по всему массиву, заполняя его
+        data.add(input.next()) // Заполняем массив элементами, введёнными с клавиатуры
     }
-    print("Inserted array elements:")
-    println(subArray2)
+    print("Введите элементы массива:")
+    println(data)
+
+    val filterData = data.filter { it.contains("+7") }
+    println("""Номера телефонов начинающиеся с "+7" $filterData""")
+
+    val toSetData = data.toSet()
+    println("Уникальные элементы массива $toSetData")
+
+    val sumData = data.sumOf { it.length }
+    println("Сумма длин всех номеров телефонов $sumData")
+
+    return filterData as MutableList<String>
+
 }
 
 
+fun funMutableMap() {
 
-
-
-fun main1() {
-    do {
-        println("Ведите размер списка")
-        var n = readLine()?.toIntOrNull() ?: return
-
-    } while (n <= 0)
-
+    println("Ведите номер телефона и имя абонента")
 
     val reader = BufferedReader(InputStreamReader(System.`in`))
     val map: MutableMap<Any, Any> = HashMap()
@@ -74,10 +53,10 @@ fun main1() {
     for ((k, v) in map) {
         println("Абонент: $k. Номер телефона: $v")
     }
-}
 
+    val sortByNumber = map.toList().sortedBy { (_, value)-> value as Comparable<Any> }.toMap()
+    println(sortByNumber)
 
-fun inputMap() {
-
-
+    val sortByName = map.toList().sortedBy { (value, _)-> value as Comparable<Any> }.toMap()
+    println(sortByName)
 }
