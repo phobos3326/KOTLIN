@@ -10,24 +10,24 @@ fun main() {
         println("${index + 1} : $element")
     }
 
-    selectTv(map)
-
-    tvSony.getVolumeUp(5)
+    val a =selectTv(map).getVolumeUp(5)
 
 
+   // val a = tvSony.getVolumeUp(5)
+    println("громкость $a ")
 }
 
 fun info(tv: TVClass) {
     println("${tv.brand}, ${tv.diagonal}, ${TVClass.VOLUME}, ${tv.isOn}")
 }
 
-fun selectTv(arrayTv: MutableList<TVClass>) {
+fun selectTv(arrayTv: MutableList<TVClass>): TVClass {
     val input = Scanner(System.`in`)
     println("выберите телевизор из списка")
     val item = input.nextInt()
 
     val getItem = arrayTv[item - 1]
     println(getItem)
-
+    return getItem
 
 }
