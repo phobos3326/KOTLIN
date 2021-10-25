@@ -1,4 +1,7 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
+import kotlin.random.Random
 
 fun main() {
     val tvSony = TVClass(brand = "SONY", diagonal = 40, isOn = false)
@@ -9,12 +12,29 @@ fun main() {
     map.forEachIndexed { index, element ->
         println("${index + 1} : $element")
     }
+    val a = selectTv(map)
 
-    val a =selectTv(map).getVolumeUp(5)
+    var volValue = TVClass.VOLUME
+
+    var randomVolume = (0..volValue).random()
+    println(randomVolume)
+
+    
+    for (i in 0..randomVolume) {
+        println(" $a громкость ++ ${a.getVolumeUp(i - 1)} ")
+    }
+
+    println("------------")
+
+    for (i in randomVolume downTo 0) {
+        println(" $a громкость -- ${a.getVolumeDown(i + 1)} ")
+    }
 
 
-   // val a = tvSony.getVolumeUp(5)
-    println("громкость $a ")
+    /*val reader = BufferedReader(InputStreamReader(System.`in`))
+    val id = reader.readLine()*/
+
+
 }
 
 fun info(tv: TVClass) {
