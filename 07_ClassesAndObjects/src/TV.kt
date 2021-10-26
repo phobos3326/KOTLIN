@@ -33,7 +33,7 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     }
 
     companion object {
-        const val VOLUME = 10
+        const val VOLUME = 50
     }
 
     override fun toString() = """$brand, диагональ $diagonal",  ${chekTurnOn()} """
