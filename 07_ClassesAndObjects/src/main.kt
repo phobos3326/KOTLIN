@@ -21,7 +21,8 @@ fun main() {
     // selectedTV.getChannels(a)
 
     val a = TV.Channels.getArray()
-    selectedTV.getChannels(a)
+    val b =selectedTV.getChannels(a)
+    println(b[1])
 
 }
 
