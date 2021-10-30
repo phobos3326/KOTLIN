@@ -50,17 +50,6 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         }*/
     }
 
-    fun getChannels(channels: MutableList<String>): MutableList<String> {
-
-        val size = (0..4).random()
-        val array: MutableList<String> = ArrayList()
-        for (i in 0 until size-1) {
-            array.add(channels.toString())
-        }
-       // array.addAll(channels)
-        return array
-        println(array)
-    }
 
     fun getVolumeDown() {
         for (i in volume downTo 1) {
@@ -75,22 +64,46 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         }
     }
 
-    companion object {
-        const val VOLUME = 50
+
+    fun getChannels(channels: List<String>): List<Pair<Int, String>> {
+
+        val size = (1..4).random()
+        //val array: MutableList<String> = ArrayList()
+        /*   for (i in 1 until size - 1) {
+               array.add(channels)
+           }*/
+        //array.addAll(channels)
+
+        val a = IntArray(size)
+
+        val zippedArray = a.zip(channels)
+
+        println(zippedArray)
+        return zippedArray
+
+
     }
 
-
     object Channels {
-        private val listOfChannel = listOf("channel 1", "channel 2", "channel 3", "channel 4", "channel 5")
+        private val listOfChannel = arrayListOf("channel 1", "channel 2", "channel 3", "channel 4", "channel 5")
 
-        fun channelSetting(): MutableList<String> {
-            //shuffledChannels.forEachIndexed { index, s -> println("${index + 1}: $s") }
 
-            return listOfChannel.shuffled().toMutableList()
+
+        fun getArray(): List<String> {
+            /* for (i in listOfChannel)
+                 println(i)*/
+
+            val shiffledList = listOfChannel.shuffled()
+
+            return shiffledList
         }
+
+    }
+
+    companion object {
+        const val VOLUME = 50
     }
 
     override fun toString() = """$brand, диагональ $diagonal",  ${chekTurnOn()} """
 
 }
-
