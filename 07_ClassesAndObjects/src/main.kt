@@ -8,7 +8,7 @@ fun main() {
 
     val selectedTV = selectTv(listOfTV)
 
-    selectedTV.getVolumeUp()
+    selectedTV.changeVolume()
     println("------------")
     //selectedTV.getVolumeDown()
     println("------------")
@@ -20,9 +20,9 @@ fun main() {
 
     // selectedTV.getChannels(a)
 
-    val a = TV.Channels.getArray()
-    val b =selectedTV.getChannels(a)
-    println(b[1])
+    val a = Channel.Channels.getListChannel()
+    val b = selectedTV.getChannels(a)
+    b.forEachIndexed { index, channel -> println("${index + 1}: ${channel.name}") }
 
 }
 

@@ -12,9 +12,10 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         return a
     }
 
-    var volume = 0
+    private var volume = 0
 
-    fun getVolumeUp() {
+
+    fun changeVolume() {
         turnOn()
 
         //val input = Scanner(System.`in`)
@@ -22,32 +23,28 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         println("измените громкость в пределах от 0 до 50")
 
 
-        while (volume in 0..VOLUME) {
-            volume = input.readLine().toInt()
-            if (volume < 0) volume = 0
-            if (volume == 100) break
-            if (volume > VOLUME) volume = 50
+        /* while (volume in 0..VOLUME) {
+             volume = input.readLine().toInt()
+             if (volume < 0) volume = 0
+             if (volume == 100) break
+             if (volume > VOLUME) volume = 50
+
+             println("$brand, ${chekTurnOn()}, тест громкости $volume")
+
+         }*/
+
+        var bufferVolume: String
+        while (true) {
+            bufferVolume = input.readLine()
+            if (bufferVolume == "exit") break
+            if (bufferVolume == "") continue
+            val b = bufferVolume.toInt()
+            if (b in 0..VOLUME) volume = b
+            if (b !in 0..VOLUME) println("некорректный ввод")
 
             println("$brand, ${chekTurnOn()}, тест громкости $volume")
-
         }
 
-        /*while (true) {
-            volume = input.readLine().toInt()
-            if (volume !in 0..VOLUME)  volume = 0
-            if (volume in 0..VOLUME) continue
-            if (volume.toString()=="") break
-            println("$brand, ${chekTurnOn()}, тест громкости $volume")
-        }*/
-        /* do {
-             volume = input.nextInt()
-             println("$brand, ${chekTurnOn()}, тест громкости $volume")
-         } while (volume in 0..VOLUME)
- */
-        /*for (i in volume..VOLUME) {
-            volume++
-            println("$brand, ${chekTurnOn()}, тест громкости ${volume - 1}")
-        }*/
     }
 
 
@@ -64,41 +61,30 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         }
     }
 
-
-    fun getChannels(channels: List<String>): List<Pair<Int, String>> {
-
-        val size = (1..4).random()
-        //val array: MutableList<String> = ArrayList()
-        /*   for (i in 1 until size - 1) {
-               array.add(channels)
-           }*/
-        //array.addAll(channels)
-
-        val a = IntArray(size)
-
-        val zippedArray = a.zip(channels)
-
-        println(zippedArray)
-        return zippedArray
-
-
+    private fun turnOff() {
+        if (isOn) {
+            isOn = false
+        }
     }
 
-    object Channels {
-        private val listOfChannel = arrayListOf("channel 1", "channel 2", "channel 3", "channel 4", "channel 5")
+
+    fun getChannels(channels: List<Channel>): List<Channel> {
+
+        val listChannelSize = Channel.Channels.getListChannel().size
+
+        val size = (1 until listChannelSize).random()
 
 
+        val channelList = mutableListOf<Channel>()
 
-        fun getArray(): List<String> {
-            /* for (i in listOfChannel)
-                 println(i)*/
-
-            val shiffledList = listOfChannel.shuffled()
-
-            return shiffledList
+        for (i in 1..size) {
+            channelList.add(channels[i-1])
         }
 
+
+        return channelList
     }
+
 
     companion object {
         const val VOLUME = 50
