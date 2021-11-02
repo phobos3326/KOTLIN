@@ -12,8 +12,6 @@ fun main() {
 
     selectedTV.changeVolume()
     println("------------")
-    //selectedTV.getVolumeDown()
-    println("------------")
 
     val a = Channel.Channels.getListChannel()
     val b = selectedTV.getChannels(a)
