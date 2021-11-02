@@ -16,7 +16,7 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
 
 
     fun changeVolume() {
-        turnOn()
+        // turnOn()
 
         //val input = Scanner(System.`in`)
         val input = BufferedReader(InputStreamReader(System.`in`))
@@ -48,12 +48,12 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     }
 
 
-    fun getVolumeDown() {
+    /*fun getVolumeDown() {
         for (i in volume downTo 1) {
             volume--
             println("$brand, ${chekTurnOn()}, тест громкости $volume")
         }
-    }
+    }*/
 
     private fun turnOn() {
         if (!isOn) {
@@ -67,21 +67,33 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         }
     }
 
+    fun selectChannel(selChannel: List<Channel>) {
+        turnOn()
+        val input = BufferedReader(InputStreamReader(System.`in`))
+        //val c = input.readLine().toInt()
+        println("выберите канал")
+
+        var bufferSel: String
+        while (true) {
+            bufferSel = input.readLine()
+            if (bufferSel == "exit") break
+            if (bufferSel == "") continue
+            val b = bufferSel.toInt()
+            if (b in 1 until selChannel.size)
+                if (b !in 1..selChannel.size) println("некорректный ввод")
+
+            println(selChannel[b - 1].name)
+        }
+    }
+
 
     fun getChannels(channels: List<Channel>): List<Channel> {
-
         val listChannelSize = Channel.Channels.getListChannel().size
-
         val size = (1 until listChannelSize).random()
-
-
         val channelList = mutableListOf<Channel>()
-
         for (i in 1..size) {
-            channelList.add(channels[i-1])
+            channelList.add(channels[i - 1])
         }
-
-
         return channelList
     }
 

@@ -1,3 +1,5 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 
 fun main() {
@@ -22,9 +24,32 @@ fun main() {
 
     val a = Channel.Channels.getListChannel()
     val b = selectedTV.getChannels(a)
-    b.forEachIndexed { index, channel -> println("${index + 1}: ${channel.name}") }
+    val c = b.forEachIndexed { index, channel ->
+        println("${index + 1}: ${channel.name}")
+    }
+
+    selectedTV.selectChannel(b)
+
 
 }
+
+
+/* while (true) {
+     if (c in 1..selChannel.size)
+         println(selChannel[c+1])
+ }*/
+
+/*  if (c in 1..selChannel.size) {
+      println(selChannel[c + 1])
+
+  }if (с == 100) {
+
+  }
+      else {
+      println("выберите канал из мписка")
+  }*/
+
+
 
 fun selectTv(arrayTv: MutableList<TV>): TV {
 
