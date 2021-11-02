@@ -16,9 +16,9 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
 
 
     fun changeVolume() {
-
+        turnOn()
         val input = BufferedReader(InputStreamReader(System.`in`))
-        println("измените громкость в пределах от 0 до 50")
+        println("""измените громкость в пределах от 0 до 50, закончить по команде "exit" """)
 
         var bufferVolume: String
         while (true) {
@@ -35,7 +35,7 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     }
 
 
-     fun turnOn() {
+     private fun turnOn() {
 
         if (!isOn) {
             isOn = true
@@ -51,7 +51,7 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     fun selectChannel(selChannel: List<Channel>) {
         turnOn()
         val input = BufferedReader(InputStreamReader(System.`in`))
-        println("выберите канал")
+        println("""выберите канал, закончить по команде "exit" """)
 
         var bufferSelect: String
         while (true) {
@@ -59,9 +59,11 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
             if (bufferSelect == "exit") break
             if (bufferSelect == "") continue
             val b = bufferSelect.toInt()
-            if (b in 1 until selChannel.size) println(selChannel[b - 1].name)
-            if (b !in 1..selChannel.size) println("некорректный ввод")
+            val c=b
 
+            if (c !in 1.. selChannel.size) println("некорректный ввод")
+            if (c in  1 .. selChannel.size)
+            println(selChannel[c-1].name)
 
         }
     }
