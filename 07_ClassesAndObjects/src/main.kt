@@ -21,6 +21,7 @@ fun main() {
 
     selectedTV.selectChannel(b)
 
+    selectedTV.turnOff()
 }
 
 fun selectTv(arrayTv: MutableList<TV>): TV {

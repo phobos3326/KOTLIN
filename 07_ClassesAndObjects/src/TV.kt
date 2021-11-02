@@ -35,13 +35,14 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     }
 
 
-    private fun turnOn() {
+     fun turnOn() {
+
         if (!isOn) {
             isOn = true
         }
     }
 
-    private fun turnOff() {
+     fun turnOff() {
         if (isOn) {
             isOn = false
         }
@@ -52,12 +53,12 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         val input = BufferedReader(InputStreamReader(System.`in`))
         println("выберите канал")
 
-        var bufferSel: String
+        var bufferSelect: String
         while (true) {
-            bufferSel = input.readLine()
-            if (bufferSel == "exit") break
-            if (bufferSel == "") continue
-            val b = bufferSel.toInt()
+            bufferSelect = input.readLine()
+            if (bufferSelect == "exit") break
+            if (bufferSelect == "") continue
+            val b = bufferSelect.toInt()
             if (b in 1 until selChannel.size) println(selChannel[b - 1].name)
             if (b !in 1..selChannel.size) println("некорректный ввод")
 
