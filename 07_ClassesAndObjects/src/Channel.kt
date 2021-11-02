@@ -19,6 +19,4 @@ class Channel(val name: String) {
             return channelList.shuffled()
         }
     }
-
-
 }

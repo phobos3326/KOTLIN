@@ -79,13 +79,12 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
             if (bufferSel == "exit") break
             if (bufferSel == "") continue
             val b = bufferSel.toInt()
-            if (b in 1 until selChannel.size)
-                if (b !in 1..selChannel.size) println("некорректный ввод")
+            if (b in 1 until selChannel.size) println(selChannel[b - 1].name)
+            if (b !in 1..selChannel.size) println("некорректный ввод")
 
-            println(selChannel[b - 1].name)
+
         }
     }
-
 
     fun getChannels(channels: List<Channel>): List<Channel> {
         val listChannelSize = Channel.Channels.getListChannel().size
@@ -96,7 +95,6 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         }
         return channelList
     }
-
 
     companion object {
         const val VOLUME = 50

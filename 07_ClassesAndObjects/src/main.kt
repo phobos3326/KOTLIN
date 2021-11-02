@@ -15,41 +15,15 @@ fun main() {
     //selectedTV.getVolumeDown()
     println("------------")
 
-    // val a= TV.Channels.channelSetting()
-
-
-    //println(a)
-
-    // selectedTV.getChannels(a)
-
     val a = Channel.Channels.getListChannel()
     val b = selectedTV.getChannels(a)
-    val c = b.forEachIndexed { index, channel ->
+    b.forEachIndexed { index, channel ->
         println("${index + 1}: ${channel.name}")
     }
 
     selectedTV.selectChannel(b)
 
-
 }
-
-
-/* while (true) {
-     if (c in 1..selChannel.size)
-         println(selChannel[c+1])
- }*/
-
-/*  if (c in 1..selChannel.size) {
-      println(selChannel[c + 1])
-
-  }if (с == 100) {
-
-  }
-      else {
-      println("выберите канал из мписка")
-  }*/
-
-
 
 fun selectTv(arrayTv: MutableList<TV>): TV {
 
