@@ -16,22 +16,9 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
 
 
     fun changeVolume() {
-        // turnOn()
 
-        //val input = Scanner(System.`in`)
         val input = BufferedReader(InputStreamReader(System.`in`))
         println("измените громкость в пределах от 0 до 50")
-
-
-        /* while (volume in 0..VOLUME) {
-             volume = input.readLine().toInt()
-             if (volume < 0) volume = 0
-             if (volume == 100) break
-             if (volume > VOLUME) volume = 50
-
-             println("$brand, ${chekTurnOn()}, тест громкости $volume")
-
-         }*/
 
         var bufferVolume: String
         while (true) {
@@ -48,13 +35,6 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     }
 
 
-    /*fun getVolumeDown() {
-        for (i in volume downTo 1) {
-            volume--
-            println("$brand, ${chekTurnOn()}, тест громкости $volume")
-        }
-    }*/
-
     private fun turnOn() {
         if (!isOn) {
             isOn = true
@@ -70,7 +50,6 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
     fun selectChannel(selChannel: List<Channel>) {
         turnOn()
         val input = BufferedReader(InputStreamReader(System.`in`))
-        //val c = input.readLine().toInt()
         println("выберите канал")
 
         var bufferSel: String
