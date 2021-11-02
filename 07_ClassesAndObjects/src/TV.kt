@@ -59,11 +59,10 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
             if (bufferSelect == "exit") break
             if (bufferSelect == "") continue
             val b = bufferSelect.toInt()
-            val c=b
 
-            if (c !in 1.. selChannel.size) println("некорректный ввод")
-            if (c in  1 .. selChannel.size)
-            println(selChannel[c-1].name)
+            if (b !in 1..selChannel.size) println("некорректный ввод")
+            if (b in 1..selChannel.size)
+                println(selChannel[b - 1].name)
 
         }
     }
