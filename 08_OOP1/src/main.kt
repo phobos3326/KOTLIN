@@ -3,7 +3,7 @@ import animals.Dog
 fun main() {
     //val animal = Dog(power = 10, weight = 10, maxAge = 50, name = "igor")
 
-    var park = NatureReserve().animals
+    val park = NatureReserve().animals
 
     /*println(animal)
 
@@ -21,7 +21,7 @@ fun main() {
 
     println(animal.isTooOld())*/
 
-    repeat(3){
+    repeat(2) {
         lifeCycle(park)
         println("_________________")
     }
@@ -30,13 +30,14 @@ fun main() {
 }
 
 
-fun lifeCycle(zoo: List<Animal>) {
+fun lifeCycle(zoo: MutableList<Animal>) {
 
     zoo.forEachIndexed { _, animal ->
-        println("${animal.eat()}, ${animal.info()} " +
-                "${animal.sleep()},${animal.info()} " +
-                "${animal.currentAge}, ${animal.info()}" +
-                "${animal.move()}, ${animal.info()}")
+        println("${animal.eat()} " +
+                "${animal.sleep()} " +
+                "${animal.currentAge}" +
+                "${animal.move()}"+
+                "${animal.animalCopy()}, ${animal.info()}")
 
 
     }

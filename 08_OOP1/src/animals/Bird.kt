@@ -8,4 +8,6 @@ class Bird(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, w
         println("$name - Летит")
 
     }
+
+
 }
