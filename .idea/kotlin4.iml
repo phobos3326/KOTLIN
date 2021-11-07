@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/02_HelloKotlin/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/05_ConditionalExpressions_Loops/Homework2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/06_Collections/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/07_ClassesAndObjects/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/08_OOP1/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime (4)" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime (2)" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="KotlinJavaRuntime (3)" level="project" />
+  </component>
+</module>

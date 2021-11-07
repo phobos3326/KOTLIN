@@ -37,7 +37,7 @@ fun lifeCycle(zoo: MutableList<Animal>) {
                 "${animal.sleep()} " +
                 "${animal.currentAge}" +
                 "${animal.move()}"+
-                "${animal.animalCopy()}, ${animal.info()}")
+                "${animal.animalCopy()}")
 
 
     }
