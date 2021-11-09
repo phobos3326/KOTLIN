@@ -1,4 +1,4 @@
-import animals.Dog
+
 
 fun main() {
     //val animal = Dog(power = 10, weight = 10, maxAge = 50, name = "igor")
