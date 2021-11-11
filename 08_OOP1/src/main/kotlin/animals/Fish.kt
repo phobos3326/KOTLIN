@@ -6,4 +6,8 @@ class Fish(power: Int, weight: Int, maxAge: Int, name: String):Animal(power, wei
     override fun move() {
         println("$name - плывет")
     }
+
+    override fun animalCopy(): Animal {
+        return Fish (power = 10, weight = 10, maxAge = 30, name = "Fish")
+    }
 }

@@ -1,3 +1,5 @@
+import kotlin.random.Random
+
 open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: String) {
 
 
@@ -21,27 +23,38 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     }
 
     fun sleep() {
-        currentAge += 1
-        power += 5
-        println("$name - спит")
+        if (Random.nextBoolean()){
+            currentAge += 1
+            power += 5
+            println("$name - спит")
+
+        }
+
 
     }
 
     fun eat() {
-        power += 3
-        weight += 1
-        val a = (0..1).random()
-        currentAge += a
-        println("$name - ест")
+        if (Random.nextBoolean()){
+            power += 3
+            weight += 1
+            val a = (0..1).random()
+            currentAge += a
+            println("$name - ест")
+        }
+
 
     }
 
     open fun move() {
-        power -= 5
-        weight -= 1
-        val a = (0..1).random()
-        currentAge += a
-        println("$name - передвигается")
+        if (Random.nextBoolean()){
+            power -= 5
+            weight -= 1
+            val a = (0..1).random()
+            currentAge += a
+            println("$name - передвигается")
+        }
+
+
 
     }
 
@@ -63,10 +76,10 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     override fun toString() = "Имя: $name, энергия: $power, возраст: $currentAge, вес: $weight"
 
-    /*open fun addToNaturalReserve() {
-        var b =
+   /* open fun tryCopy() {
+        var b = animalCopy()
          var a = NatureReserve().animals
-         a.add(zz)
+         a.add(b)
      }*/
 
 

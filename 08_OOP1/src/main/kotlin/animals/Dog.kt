@@ -16,7 +16,7 @@ class Dog(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, we
     }*/
 
     override fun animalCopy(): Animal {
-        return Animal(power = 10, weight = 10, maxAge = 30, name = "Dog-10")
+        return Dog(power = 10, weight = 10, maxAge = 30, name = "Dog-10")
     }
 
 
