@@ -2,7 +2,7 @@ import animals.Bird
 import animals.Dog
 import animals.Fish
 
-class NatureReserve() {
+class NatureReserve {
 
 
     var dogOne = Dog(power = 10, weight = 10, maxAge = 30, name = "Dog-1")
@@ -18,8 +18,7 @@ class NatureReserve() {
     var fishTwo = Fish(power = 10, weight = 10, maxAge = 10, name = "Fish-2")
     var fishThree = Fish(power = 10, weight = 10, maxAge = 10, name = "Fish-3")
 
-    var animalOne = Animal(10,10,10, "Animal-1")
-
+    var animalOne = Animal(10, 10, 10, "Animal-1")
 
 
     val animals = mutableListOf(
@@ -38,7 +37,11 @@ class NatureReserve() {
         animalOne
     )
 
-
-
+   fun out(){
+   }
 
 }
+
+
+
+

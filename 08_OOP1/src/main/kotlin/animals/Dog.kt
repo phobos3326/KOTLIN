@@ -8,18 +8,20 @@ class Dog(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, we
         println("$name - бежит")
     }
 
-    /*
-    override fun born(): Animal {
-        return Animal(power = 10, weight = 10, maxAge = 30, name = "Dog-10")    }*/
-   /* override fun addToNaturalReserve() {
-        super.addToNaturalReserve()
+
+
+    /*override fun animalCopy(): Animal {
+        return Dog(power = 10, weight = 10, maxAge = 30, name = "Dog-РОДИЛСЯ")
     }*/
 
     override fun animalCopy(): Animal {
-        return Dog(power = 10, weight = 10, maxAge = 30, name = "Dog-10")
+
+       return Dog(power=pow, weight=wgt, maxAge , name = "DOG РОДИЛСЯ")
     }
 
+    override fun toString() = "Имя: $name, энергия: $power, возраст: $currentAge, вес: $weight"
 
-    override fun toString() = "Имя: $name, энергия: $power, возраст: $currentAge, вес: $weight, ++++++++++"
-
+    override fun tryCopy() {
+        super.tryCopy()
+    }
 }

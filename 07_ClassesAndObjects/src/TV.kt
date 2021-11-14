@@ -81,6 +81,6 @@ class TV(val brand: String, val diagonal: Int, var isOn: Boolean) {
         const val VOLUME = 50
     }
 
-    override fun toString() = """$brand, диагональ $diagonal",  ${chekTurnOn()} """
+        override fun toString() = """$brand, диагональ $diagonal",  ${chekTurnOn()} """
 
 }
