@@ -1,31 +1,19 @@
+import java.math.BigDecimal
+import java.math.BigInteger
+
 fun main() {
-    //val animal = Dog(power = 10, weight = 10, maxAge = 50, name = "igor")
 
     val park = NatureReserve().animals
 
+      repeat(10) {
+          lifeCycle(park)
+          println("_________________")
+      }
 
-    /*println(animal)
+      println(park.forEach { animal -> animal.info() })
+      println(park.size)
 
-    animal.isTooOld()
-
-    animal.sleep()
-
-    println(animal)
-
-    animal.eat()
-    println(animal)
-
-    animal.move()
-    println(animal)
-
-    println(animal.isTooOld())*/
-
-    repeat(1) {
-        lifeCycle(park)
-        println("_________________")
-    }
-
-    println(park.size)
+   // println(size().toString())
 
 }
 
@@ -33,28 +21,54 @@ fun main() {
 fun lifeCycle(zoo: MutableList<Animal>) {
 //zoo.forEach { animal -> animal.tryCopy().let { zoo.add(it) } }
     val tempArray = mutableListOf<Animal>()
+    /* zoo.forEach { animal ->
+         //animal.tryCopy()?.let { zoo.add(it) }
+         val a = animal.animalCopy()
+         tempArray.add(a)
+         println("${animal.eat()} " +
+                 "${animal.sleep()} " +
+                 "${animal.currentAge}" +
+                 "${animal.move()}" +
+                 "${animal.info()}" +
+                 "${tempArray.forEach { animal -> println(animal.info()) }}"
+         )
+
+
+     }*/
+
     zoo.forEach { animal ->
         //animal.tryCopy()?.let { zoo.add(it) }
         val a = animal.animalCopy()
         tempArray.add(a)
-        println("${animal.eat()} " +
-                "${animal.sleep()} " +
-                "${animal.currentAge}" +
-                "${animal.move()}" +
-                "${animal.info()}"+
-                "$tempArray"
-        )
-
+        animal.eat()
+        animal.sleep()
+        animal.currentAge
+        animal.move()
+        //animal.info()
+        //tempArray
 
 
     }
 
     for (i in 1..zoo.size) {
-        zoo.add(tempArray[i -1])
+        zoo.add(tempArray[i - 1])
     }
 
 }
 
 
+/*fun size(): BigInteger {
 
+    //fun Long.toBigInteger() = BigInteger.valueOf(this)
+    fun Int.toBigInteger() = BigInteger.valueOf(toLong())
 
+    var a = BigInteger("11")
+    val b = BigInteger("2")
+
+    repeat(100) {
+        a *= b
+        println(a)
+    }
+
+    return a
+}*/
