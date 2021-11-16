@@ -23,21 +23,21 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
           return false
       }*/
 
-    fun ageChange() {
+    private fun tryIncrementAge() {
         if (Random.nextBoolean()) {
             currentAge += 1
         }
     }
 
     fun sleep() {
-        ageChange()
+        tryIncrementAge()
         power += 5
         println("$name - спит")
 
     }
 
     fun eat() {
-        ageChange()
+        tryIncrementAge()
         power += 3
         weight += 1
 
@@ -46,7 +46,7 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     }
 
     open fun move() {
-        ageChange()
+        tryIncrementAge()
         power -= 5
         weight -= 1
 

@@ -10,7 +10,7 @@ fun main() {
           println("_________________")
       }
 
-      println(park.forEach { animal -> animal.info() })
+    //  println(park.forEach { animal -> animal.info() })
       println(park.size)
 
    // println(size().toString())

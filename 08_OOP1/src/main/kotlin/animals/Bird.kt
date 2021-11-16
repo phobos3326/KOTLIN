@@ -6,11 +6,15 @@ class Bird(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, w
 
 
 
-     override fun move() {
+    /* override fun move() {
         println("$name - Летит")
 
-    }
+    }*/
 
+    override fun move() {
+        super.move()
+        println("$name - летит---")
+    }
 
     override fun animalCopy(): Animal {
         return Bird(power=pow, weight=wgt, maxAge = 30, name = "Bird РОДИЛСЯ ")
