@@ -26,7 +26,7 @@ class NatureReserve {
         dogTwo,
 
         birdOne,
-        /*birdTwo,
+        birdTwo,
         birdThree,
         birdFour,
         birdFive,
@@ -34,11 +34,9 @@ class NatureReserve {
         fishOne,
         fishTwo,
         fishThree,
-        animalOne*/
+        animalOne
     )
 
-   fun out(){
-   }
 
 }
 

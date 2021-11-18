@@ -6,26 +6,8 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     var currentAge: Int = 0
 
     val isToOld: Boolean
-        get() = currentAge>=maxAge
+        get() = currentAge >= maxAge
 
-   /* val Int.isEvenNumber: Boolean
-        get() = this % 2 == 0*/
-
-    /*init {
-        isTooOld()
-        sleep()
-        eat()
-        this.move()
-    }*/
-
-    /*  fun isTooOld(): Boolean {
-          when {
-              currentAge >= maxAge -> {
-                  return true
-              }
-          }
-          return false
-      }*/
 
     private fun tryIncrementAge() {
         if (Random.nextBoolean()) {
@@ -68,7 +50,6 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     val wgt = (1..5).random()
 
     open fun animalCopy(): Animal {
-        // var a = NatureReserve().animals
 
         return Animal(power = pow, weight = wgt, maxAge = 30, name = "Animal РОДИЛСЯ")
 
