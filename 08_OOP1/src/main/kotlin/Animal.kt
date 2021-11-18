@@ -5,7 +5,11 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     var currentAge: Int = 0
 
-    var isToOld: Boolean = false
+    val isToOld: Boolean
+        get() = currentAge>=maxAge
+
+   /* val Int.isEvenNumber: Boolean
+        get() = this % 2 == 0*/
 
     /*init {
         isTooOld()
@@ -25,7 +29,7 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     private fun tryIncrementAge() {
         if (Random.nextBoolean()) {
-            currentAge += 1
+            currentAge += 2
         }
     }
 
@@ -59,6 +63,7 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
         println("Имя: $name, энергия: $power, возраст: $currentAge, вес: $weight")
         println("_______________")
     }
+
     val pow = (1..10).random()
     val wgt = (1..5).random()
 

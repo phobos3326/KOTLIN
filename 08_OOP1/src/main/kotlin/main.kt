@@ -5,15 +5,16 @@ fun main() {
 
     val park = NatureReserve().animals
 
-      repeat(10) {
-          lifeCycle(park)
-          println("_________________")
-      }
+    repeat(10) {
+        lifeCycle(park)
+        println("_________________")
+    }
 
     //  println(park.forEach { animal -> animal.info() })
-      println(park.size)
+    println(park.size)
 
-   // println(size().toString())
+    // println(size().toString())
+
 
 }
 
@@ -21,6 +22,7 @@ fun main() {
 fun lifeCycle(zoo: MutableList<Animal>) {
 //zoo.forEach { animal -> animal.tryCopy().let { zoo.add(it) } }
     val tempArray = mutableListOf<Animal>()
+    val tempArrayOut = mutableListOf<Animal>()
     /* zoo.forEach { animal ->
          //animal.tryCopy()?.let { zoo.add(it) }
          val a = animal.animalCopy()
@@ -39,11 +41,18 @@ fun lifeCycle(zoo: MutableList<Animal>) {
     zoo.forEach { animal ->
         //animal.tryCopy()?.let { zoo.add(it) }
         val a = animal.animalCopy()
+
+        // val b = animal.isToOld
         tempArray.add(a)
+        // tempArrayOut.add(b)
         animal.eat()
         animal.sleep()
         animal.currentAge
         animal.move()
+        if (animal.isToOld) {
+            tempArrayOut.add(animal)
+        }
+
         //animal.info()
         //tempArray
 
@@ -53,6 +62,11 @@ fun lifeCycle(zoo: MutableList<Animal>) {
     for (i in 1..zoo.size) {
         zoo.add(tempArray[i - 1])
     }
+
+    for (j in 0..zoo.size){
+
+    }
+
 
 }
 
