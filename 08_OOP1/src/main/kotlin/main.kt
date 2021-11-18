@@ -5,7 +5,7 @@ fun main() {
 
     val park = NatureReserve().animals
 
-    repeat(10) {
+    repeat(20) {
         lifeCycle(park)
         println("_________________")
     }
@@ -13,7 +13,7 @@ fun main() {
     //  println(park.forEach { animal -> animal.info() })
     println(park.size)
 
-    // println(size().toString())
+    //println(size().toString())
 
 
 }
@@ -63,10 +63,9 @@ fun lifeCycle(zoo: MutableList<Animal>) {
         zoo.add(tempArray[i - 1])
     }
 
-    for (j in 0..zoo.size){
-
-    }
-
+  /*val elseList  = zoo - tempArrayOut
+    println( "${elseList.size} tkc kbcn")*/
+    zoo.removeAll(tempArrayOut)
 
 }
 
