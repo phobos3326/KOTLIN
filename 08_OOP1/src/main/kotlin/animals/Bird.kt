@@ -11,10 +11,8 @@ class Bird(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, w
     }
 
     override fun animalCopy(): Animal {
+        println("$name - рожает")
         return Bird(power=pow, weight=wgt, maxAge = 30, name = "Bird РОДИЛСЯ ")
     }
 
-    override fun tryCopy() {
-        super.tryCopy()
-    }
 }

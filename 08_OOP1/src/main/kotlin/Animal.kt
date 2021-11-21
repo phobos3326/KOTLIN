@@ -8,10 +8,18 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     val isToOld: Boolean
         get() = currentAge >= maxAge
 
-
     private fun tryIncrementAge() {
         if (Random.nextBoolean()) {
-            currentAge += 2
+            currentAge += 1
+        }
+    }
+
+    val isPower: Boolean
+        get() = power >= 5
+
+    private fun tryDecrementPower() {
+        if (isPower) {
+            power -= 5
         }
     }
 
@@ -33,7 +41,7 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     open fun move() {
         tryIncrementAge()
-        power -= 5
+        tryDecrementPower()
         weight -= 1
 
         println("$name - передвигается")
@@ -50,20 +58,13 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
     val wgt = (1..5).random()
 
     open fun animalCopy(): Animal {
-
+        println("$name - рожает")
         return Animal(power = pow, weight = wgt, maxAge = 30, name = "Animal РОДИЛСЯ")
 
     }
 
 
     override fun toString() = "Имя: $name, энергия: $power, возраст: $currentAge, вес: $weight"
-
-    open fun tryCopy() {
-        val b = animalCopy()
-        val a = NatureReserve().animals
-        a.add(b)
-    }
-
 
 }
 

@@ -10,42 +10,35 @@ fun main() {
         println("_________________")
     }
 
-
     println(park.size)
 
-
 }
-
 
 fun lifeCycle(zoo: MutableList<Animal>) {
 
     val tempArray = mutableListOf<Animal>()
     val tempArrayOut = mutableListOf<Animal>()
 
-
     zoo.forEach { animal ->
 
-        val a = animal.animalCopy()
+        when ((1..4).random()) {
+            1 -> animal.sleep()
+            2 -> animal.move()
+            3 -> animal.eat()
+            4 -> tempArray.add(animal.animalCopy())
+        }
 
-        tempArray.add(a)
-
-        animal.eat()
-        animal.sleep()
-        animal.currentAge
-        animal.move()
         if (animal.isToOld) {
             tempArrayOut.add(animal)
         }
-
-
+        animal.info()
     }
 
-    for (i in 1..zoo.size) {
-        zoo.add(tempArray[i - 1])
-    }
-
-
+    zoo.addAll(tempArray)
+   // tempArray.clear()
     zoo.removeAll(tempArrayOut)
+    //tempArrayOut.clear()
+
 
 }
 
