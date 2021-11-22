@@ -14,14 +14,14 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
         }
     }
 
-    val isPower: Boolean
+   /* private val isPower: Boolean
         get() = power >= 5
 
     private fun tryDecrementPower() {
         if (isPower) {
             power -= 5
         }
-    }
+    }*/
 
     fun sleep() {
         tryIncrementAge()
@@ -39,13 +39,25 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     }
 
-    open fun move() {
+  /*  open fun move() {
         tryIncrementAge()
         tryDecrementPower()
         weight -= 1
 
         println("$name - передвигается")
 
+    }*/
+
+
+    open fun move() {
+        if(!isToOld && power >= 5 && weight >= 1) {
+            tryIncrementAge()
+            power -= 5
+            weight -= 1
+
+            println("$name - передвигается")
+
+        }
     }
 
 
