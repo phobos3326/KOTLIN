@@ -10,9 +10,11 @@ fun main() {
         println("_________________")
     }
 
-    println(park.size)
+    println("в заповеднике осталось ${park.size} животных")
 
 }
+
+
 
 fun lifeCycle(zoo: MutableList<Animal>) {
 

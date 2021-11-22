@@ -14,14 +14,6 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
         }
     }
 
-   /* private val isPower: Boolean
-        get() = power >= 5
-
-    private fun tryDecrementPower() {
-        if (isPower) {
-            power -= 5
-        }
-    }*/
 
     fun sleep() {
         tryIncrementAge()
@@ -38,15 +30,6 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
         println("$name - ест")
 
     }
-
-  /*  open fun move() {
-        tryIncrementAge()
-        tryDecrementPower()
-        weight -= 1
-
-        println("$name - передвигается")
-
-    }*/
 
 
     open fun move() {
@@ -71,7 +54,7 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
     open fun animalCopy(): Animal {
         println("$name - рожает")
-        return Animal(power = pow, weight = wgt, maxAge = 30, name = "Animal РОДИЛСЯ")
+        return Animal(power = pow, weight = wgt, maxAge = 30, name)
 
     }
 

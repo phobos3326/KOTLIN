@@ -22,7 +22,7 @@ class NatureReserve {
 
 
     val animals = mutableListOf(
-       /* dogOne,
+        dogOne,
         dogTwo,
 
         birdOne,
@@ -33,7 +33,7 @@ class NatureReserve {
 
         fishOne,
         fishTwo,
-        fishThree,*/
+        fishThree,
         animalOne
     )
 
