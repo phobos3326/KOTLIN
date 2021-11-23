@@ -10,7 +10,7 @@ class Dog(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, we
         println("$name - бежит")
     }
 
-    override fun animalCopy(): Animal {
+    override fun animalCopy(): Dog {
         println("$name - рожает")
        return Dog(power=pow, weight=wgt, maxAge , name)
     }

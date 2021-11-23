@@ -9,7 +9,7 @@ class Fish(power: Int, weight: Int, maxAge: Int, name: String) : Animal(power, w
         println("$name - плывет")
     }
 
-    override fun animalCopy(): Animal {
+    override fun animalCopy(): Fish {
         println("$name - рожает")
         return Fish(power = pow, weight = wgt, maxAge = 30, name)
     }

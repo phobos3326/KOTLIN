@@ -16,7 +16,6 @@ open class Animal(var power: Int, var weight: Int, val maxAge: Int, val name: St
 
 
     fun sleep() {
-        tryIncrementAge()
         power += 5
         println("$name - спит")
 
