@@ -1,14 +1,10 @@
-abstract class BankCard() {
-    val balance: Int? = null
+import java.util.*
 
-    fun balanceUp() {
-    }
+abstract class BankCard(var balance: Int) {
 
-    fun pay() {
-    }
-
-    fun getBalance() {
-    println("баланс $balance")
-    }
+    abstract fun balanceUp()
+    abstract fun pay()
+    abstract fun getBalance()
 
 }
+
