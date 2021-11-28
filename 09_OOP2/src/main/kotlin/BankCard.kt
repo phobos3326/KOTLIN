@@ -1,6 +1,6 @@
 import java.util.*
 
-abstract class BankCard(var balance: Int) {
+abstract class BankCard(var balance: Float) {
 
     abstract fun balanceUp()
     abstract fun pay()

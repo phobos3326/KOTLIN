@@ -1,4 +1,4 @@
-class DebitCard(balance: Int) : BankCard(balance) {
+class DebitCard(balance: Float) : BankCard(balance) {
 
     override fun toString(): String {
         return balance.toString()
@@ -14,21 +14,24 @@ class DebitCard(balance: Int) : BankCard(balance) {
     override fun pay() {
         val b = (1..100).random()
 
-        if (balance<b){
+        if (balance < b) {
             println("недостаточно средств")
-        }else  {balance -=b
-        println("оплата на сумму $b")}
+        } else {
+            balance -= b
+            println("оплата на сумму $b")
+        }
     }
 
     override fun getBalance() {
         println("баланс карты $balance")
     }
 
-   fun upPercent() {
-        balance +=1
-       println("начислены проценты, баланс $balance")
-       }
-
+    fun upPercent() {
+        /* balance += 1
+         println("начислены проценты, баланс $balance")*/
+        //var a = balance
+        balance += (balance / 100 * 1.5).toFloat()
+    }
 
 
 }
