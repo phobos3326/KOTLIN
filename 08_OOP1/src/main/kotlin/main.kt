@@ -1,9 +1,14 @@
+import animals.Dog
+
 import java.math.BigDecimal
 import java.math.BigInteger
 
 fun main() {
 
     val park = NatureReserve().animals
+
+
+
 
     repeat(20) {
         lifeCycle(park)

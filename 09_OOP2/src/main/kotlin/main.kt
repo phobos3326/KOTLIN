@@ -1,31 +1,29 @@
 fun main() {
 
-    /* val debitCard = DebitCard(5)
-
-     println("$debitCard")
-     debitCard.info()
-     debitCard.balanceUp()
-     debitCard.info()*/
-
     val wallet = Wallet().myWallet
 
-    cardUse(wallet)
+
+
+    repeat(2) {
+        cardUse(wallet)
+        println("_________________")
+    }
 
 }
 
 fun cardUse(wallet: List<DebitCard>) {
-
+    val a = (1..100).random().toFloat()
+    val b = (1..100).random().toFloat()
     wallet.forEach { item ->
         item.getBalance()
-        item.balanceUp()
+        item.balanceUp(a)
         item.getBalance()
         item.upPercent()
-        item.pay()
+        item.pay(b)
         item.getBalance()
 
 
     }
-
 
 
 }

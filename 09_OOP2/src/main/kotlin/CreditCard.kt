@@ -1,19 +1,10 @@
-class DebitCard() : BankCard() {
-    override var balance: Float
-        get() = TODO("Not yet implemented")
-        set(value) {}
+class CreditCard(balance: Float) : BankCard(balance) {
 
-
-    /*
-        override fun toString(): String {
-            return balance.toString()
-        }*/
-
+    var creditLimit: Float? = null
 
     override fun balanceUp(cashInFlow: Float) {
         balance += cashInFlow
         println("карта пополнена на $cashInFlow")
-
     }
 
     override fun pay(paymentAmount: Float): Boolean {
@@ -32,11 +23,6 @@ class DebitCard() : BankCard() {
 
     override fun getAvailableMoney() {
         TODO("Not yet implemented")
-    }
-
-    fun upPercent() {
-
-        balance += (balance / 100 * 1.5f)
     }
 
 
