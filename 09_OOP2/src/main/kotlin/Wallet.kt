@@ -1,8 +1,12 @@
 class Wallet {
 
-    var debitCard = DebitCard(5f)
+    var debitCard = DebitCard()
+    var creditCard = CreditCard()
 
     val myWallet = listOf(
-        debitCard
+        debitCard,
+       // creditCard
+
+
     )
 }

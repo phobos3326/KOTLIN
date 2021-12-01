@@ -2,7 +2,7 @@ import java.util.*
 
 abstract class BankCard {
 
-    abstract var balance: Float
+    open var balance: Float = 0.0f
     abstract fun balanceUp(cashInFlow: Float)
     abstract fun pay(paymentAmount: Float): Boolean
     abstract fun getBalance()

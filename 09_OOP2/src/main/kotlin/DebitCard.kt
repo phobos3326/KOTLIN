@@ -1,8 +1,13 @@
-class DebitCard() : BankCard() {
+class DebitCard : BankCard() {
+
     override var balance: Float
-        get() = TODO("Not yet implemented")
+        get() = super.balance
         set(value) {}
 
+    /*  override var balance: Float
+          get() = TODO("Not yet implemented")
+          set(value) {}
+  */
 
     /*
         override fun toString(): String {

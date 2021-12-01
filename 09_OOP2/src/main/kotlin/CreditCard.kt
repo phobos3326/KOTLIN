@@ -1,4 +1,4 @@
-class CreditCard(balance: Float) : BankCard(balance) {
+class CreditCard: BankCard() {
 
     var creditLimit: Float? = null
 
