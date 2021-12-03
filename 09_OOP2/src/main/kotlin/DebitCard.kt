@@ -1,8 +1,7 @@
-class DebitCard : BankCard() {
+class DebitCard( ) : BankCard() {
 
-    override var balance: Float
-        get() = super.balance
-        set(value) {}
+    override var balance: Float = 0.0f
+
 
     /*  override var balance: Float
           get() = TODO("Not yet implemented")
@@ -23,12 +22,14 @@ class DebitCard : BankCard() {
 
     override fun pay(paymentAmount: Float): Boolean {
         if (balance < paymentAmount) {
-            println("недостаточно средств")
+            println("оплата на сумму $paymentAmount. недостаточно средств")
+            return false
         } else {
             balance -= paymentAmount
             println("оплата на сумму $paymentAmount")
+            return true
         }
-        return true
+
     }
 
     override fun getBalance() {
