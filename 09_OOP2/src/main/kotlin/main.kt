@@ -14,8 +14,6 @@ fun main() {
         creditCardUse(card)
         println("_________________")
     }
-
-
 }
 
 fun cardUse(wallet: List<DebitCard>) {
@@ -28,22 +26,18 @@ fun cardUse(wallet: List<DebitCard>) {
         item.upPercent()
         item.pay(b)
         item.getBalance()
-
-
     }
-
-
 }
 
 fun creditCardUse(card: CreditCard) {
     val a = (1..100).random().toFloat()
     val b = (1..100).random().toFloat()
     card.balanceUp(a)
-    card.getBalance()
+    //card.getBalance()
     card.getAvailableMoney()
     card.pay(b)
-
-    card.getBalance()
+    card.getAvailableMoney()
+    //card.getBalance()
     card.upPercent()
-    card.getBalance()
+    card.getAvailableMoney()
 }
