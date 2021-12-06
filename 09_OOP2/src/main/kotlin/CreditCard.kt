@@ -2,18 +2,25 @@ class CreditCard(var bal: Float) : BankCard() {
 
     private var creditBalance: Float = 100f
 
-    var creditLimit: Float? = 100f
+    var creditLimit: Float = 100f
 
     override var balance: Float = bal
+
     //get() = bal
     /*set(bal) {
         field = bal
     }*/
 
     override fun balanceUp(cashInFlow: Float) {
-        balance += cashInFlow
-        println("карта пополнена на $cashInFlow")
-
+        val delta = creditLimit-creditBalance
+        if (delta>0){
+            println("пополнение карты на сумму $cashInFlow, вначале нужно погасить кредитую часть на сумму $delta")
+            creditBalance+= delta
+            balance+=cashInFlow-delta
+        }else{
+            balance += cashInFlow
+            println("карта пополнена на $cashInFlow")
+        }
 
     }
 
