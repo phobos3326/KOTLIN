@@ -1,16 +1,13 @@
+import cards.DebitCard
+import cards.DebitCardCashBack
+
 fun main() {
 
-    val wallet = Wallet().myWallet
+    //val wallet = Wallet().myWallet
 
+    val card = DebitCardCashBack(50f)
 
-    /*repeat(2) {
-        cardUse(wallet)
-        println("_________________")
-    }
-*/
-    val card = CreditCard(50f)
-
-    repeat(2) {
+    repeat(10) {
         creditCardUse(card)
         println("_________________")
     }
@@ -29,15 +26,14 @@ fun cardUse(wallet: List<DebitCard>) {
     }
 }
 
-fun creditCardUse(card: CreditCard) {
+fun creditCardUse(card: DebitCardCashBack) {
     val a = (1..100).random().toFloat()
     val b = (1..100).random().toFloat()
     card.balanceUp(a)
-    //card.getBalance()
     card.getAvailableMoney()
     card.pay(b)
     card.getAvailableMoney()
-    //card.getBalance()
-    card.upPercent()
+   // card.upPercent()
     card.getAvailableMoney()
+
 }

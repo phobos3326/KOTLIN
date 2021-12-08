@@ -8,5 +8,7 @@ abstract class BankCard {
     abstract fun getBalance()
     abstract fun getAvailableMoney()
 
+
+
 }
 

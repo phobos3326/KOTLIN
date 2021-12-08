@@ -1,6 +1,10 @@
-class DebitCard( ) : BankCard() {
+package cards
 
-    override var balance: Float = 0.0f
+import BankCard
+
+open class DebitCard(fl: Float) : BankCard() {
+
+    override var balance: Float = fl
 
 
     /*  override var balance: Float
@@ -21,27 +25,28 @@ class DebitCard( ) : BankCard() {
     }
 
     override fun pay(paymentAmount: Float): Boolean {
-        if (balance < paymentAmount) {
+
+        return if (balance < paymentAmount) {
             println("оплата на сумму $paymentAmount. недостаточно средств")
-            return false
+            false
         } else {
             balance -= paymentAmount
             println("оплата на сумму $paymentAmount")
-            return true
+            true
         }
-
     }
+
+
 
     override fun getBalance() {
         println("баланс карты $balance")
     }
 
     override fun getAvailableMoney() {
-        TODO("Not yet implemented")
+        println("собственные средства $balance")
     }
 
     fun upPercent() {
-
         balance += (balance / 100 * 1.5f)
     }
 

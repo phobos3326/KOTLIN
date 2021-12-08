@@ -1,4 +1,8 @@
-class CreditCard(var bal: Float) : BankCard() {
+package cards
+
+import BankCard
+
+class CreditCard(bal: Float) : BankCard() {
 
     private var creditBalance: Float = 100f
 
@@ -6,12 +10,7 @@ class CreditCard(var bal: Float) : BankCard() {
 
     override var balance: Float = bal
 
-    //get() = bal
-    /*set(bal) {
-        field = bal
-    }*/
-
-    override fun balanceUp(cashInFlow: Float) {
+       override fun balanceUp(cashInFlow: Float) {
         val delta = creditLimit-creditBalance
         if (delta>0){
             println("пополнение карты на сумму $cashInFlow, вначале нужно погасить кредитую часть на сумму $delta")
@@ -48,9 +47,6 @@ class CreditCard(var bal: Float) : BankCard() {
         }
     }
 
-    fun delta(paymentAmount: Float): Float {
-        return balance - creditBalance
-    }
 
     override fun getBalance() {
         println("баланс карты $balance")
