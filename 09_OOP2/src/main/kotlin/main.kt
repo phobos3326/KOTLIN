@@ -28,7 +28,7 @@ fun cardUse(wallet: List<DebitCard>) {
 
 fun creditCardUse(card: DebitCardCashBack) {
     val a = (1..100).random().toFloat()
-    val b = (1..100).random().toFloat()
+    val b = (1..1000).random().toFloat()
     card.balanceUp(a)
     card.getAvailableMoney()
     card.pay(b)

@@ -5,9 +5,9 @@ class DebitCardCashBack(fl: Float) : DebitCard(fl) {
     override var balance: Float = fl
 
     var shoping = 0f
-    var bonusScore = 0f
+    private var bonusScore = 0f
 
-    var cashBack = 0f
+    private var cashBack = 0f
     private var paySumma = 0f
 
 
@@ -15,16 +15,22 @@ class DebitCardCashBack(fl: Float) : DebitCard(fl) {
         super.balanceUp(cashInFlow)
     }
 
+
     override fun pay(paymentAmount: Float): Boolean {
         paySumma += paymentAmount
         shoping = paymentAmount
         shopping()
-        cashBack()
-        return super.pay(paymentAmount)
+        return if (balance < paymentAmount) {
+            println("оплата на сумму $paymentAmount. недостаточно средств")
+            false
+        } else {
+            balance -= paymentAmount
+            println("оплата на сумму $paymentAmount")
+            cashBack()
+            true
+        }
 
     }
-
-
 
     override fun getBalance() {
         super.getBalance()
@@ -41,9 +47,9 @@ class DebitCardCashBack(fl: Float) : DebitCard(fl) {
     }
 
     private fun cashBack() {
-        if (paySumma > 100 && !pay()){
-            cashBack+=(paySumma/100 *5f)
-            paySumma= 0F
+        if (paySumma > 100) {
+            cashBack += (paySumma / 100 * 5f)
+            paySumma = 0F
         }
     }
 
