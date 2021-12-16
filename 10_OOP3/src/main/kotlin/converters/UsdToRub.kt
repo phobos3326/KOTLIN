@@ -2,20 +2,17 @@ package converters
 
 import CurrencyConverter
 
-class UsdToRub() : CurrencyConverter {
+class UsdToRub : CurrencyConverter {
 
-    override var value = 73f
+    var value = 73f
 
-    init {
-        info()
-    }
 
     override var currencyCode: String = "usd"
 
-    override fun convertToRub(from: Float, to: Float) {
+    override fun convertToRub(from: Float) {
 
-        val result = (from / to * value)
-        println(result)
+        val result = (from / 1 * value)
+        println("$result рублей = $from $currencyCode")
     }
 
     fun info() {
