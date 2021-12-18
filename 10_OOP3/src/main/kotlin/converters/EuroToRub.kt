@@ -8,11 +8,11 @@ class EuroToRub : CurrencyConverter {
     var value = 83f
 
 
-    override var currencyCode: String = "euro"
+    override var currencyCode: String = "usd"
 
 
     override fun convertToRub(from: Float) {
-        val result = (from / 1 * value)
+        val result = (from  * value)
         println("$result рублей = $from $currencyCode")
     }
 

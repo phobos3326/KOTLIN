@@ -11,7 +11,7 @@ class UsdToRub : CurrencyConverter {
 
     override fun convertToRub(from: Float) {
 
-        val result = (from / 1 * value)
+        val result = (from  * value)
         println("$result рублей = $from $currencyCode")
     }
 
