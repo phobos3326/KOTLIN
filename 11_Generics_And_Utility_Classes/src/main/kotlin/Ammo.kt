@@ -17,7 +17,6 @@ enum class Ammo(var damage: Int, val criticalDamageChance: Int, var criticalDama
 
         return if (criticalDamageChance.isDamage()) {
             (damage * criticalDamageCoeff).toInt()
-
         } else {
             damage
         }

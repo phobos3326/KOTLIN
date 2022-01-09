@@ -10,4 +10,6 @@ class Stack<T> {
     fun isEmpty(): Boolean {
         return true
     }
+
+
 }

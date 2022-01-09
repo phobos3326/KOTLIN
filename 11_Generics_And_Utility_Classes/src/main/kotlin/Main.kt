@@ -12,6 +12,11 @@ fun main() {
     }
     println(sum)
 
+    FireType.singleShot
+    FireType.machineGun(5)
+    println(FireType.machineGun(5))
+
+
 
 }
 
