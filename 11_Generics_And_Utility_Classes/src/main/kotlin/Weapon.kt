@@ -1,22 +1,24 @@
-class Weapon : AbstractWeapon() {
-    override var maxAmmo: Int
-        get() = TODO("Not yet implemented")
-        set(value) {}
-    override var fireType: FireType
-        get() = TODO("Not yet implemented")
-        set(value) {}
+class Weapon(maxAmmo: Int, fireType: FireType) : AbstractWeapon(maxAmmo, fireType) {
+
     override var ammoMagazine: Stack<Int>
         get() = TODO("Not yet implemented")
         set(value) {}
+
     override var isLoaded: Boolean
         get() = TODO("Not yet implemented")
         set(value) {}
 
-    override fun getBullet(): Ammo {
-        return Ammo.THIRDBULLET
+
+      override fun getBullet(ammotype: Ammo): Ammo {
+        return super.getBullet(ammotype)
     }
 
-    override fun reloadWeapon(): Stack<Int> {
+    override fun reloadWeapon(ammotype: Ammo) {
+
+    }
+
+
+    override fun getAmmo() {
         TODO("Not yet implemented")
     }
 

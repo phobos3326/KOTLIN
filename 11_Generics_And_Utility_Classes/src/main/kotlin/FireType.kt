@@ -1,12 +1,7 @@
 sealed class FireType {
 
-    object singleShot : FireType() {
-        var singleShot = 1
-    }
+    object SingleShot : FireType()
 
-    data class machineGun(var queueSize: Int) : FireType() {
-        val longShot = queueSize
-
-    }
+    data class MachineGun(var queueSize: Int) : FireType()
 
 }

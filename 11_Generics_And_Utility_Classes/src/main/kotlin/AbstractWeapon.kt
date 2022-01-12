@@ -1,12 +1,22 @@
-abstract class AbstractWeapon {
+abstract class AbstractWeapon(var maxAmmo: Int, var fireType: FireType) {
 
-    abstract var maxAmmo: Int
-    abstract var fireType: FireType
+
+
     abstract var ammoMagazine: Stack<Int>
-    abstract var isLoaded:Boolean
 
-    abstract fun getBullet():Ammo
+    open val isLoaded : Boolean = false
+       //get() =
 
-    abstract fun reloadWeapon():Stack<Int>
+   open fun getBullet(ammotype: Ammo):Ammo{
+       // val ammo:Ammo
+        return ammotype
+    }
+
+    open fun reloadWeapon(ammoType:Ammo){
+
+        ammoMagazine.push(4)
+
+    }
+    abstract fun getAmmo()
 
 }

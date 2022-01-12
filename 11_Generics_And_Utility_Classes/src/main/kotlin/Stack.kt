@@ -1,15 +1,27 @@
 class Stack<T> {
-    fun push(item: T) {
 
+    var array = mutableListOf<T>();
+
+    fun push(item: T) {
+        array.add(item)
     }
 
     fun pop(): T? {
-        return null
+                val number = array.lastIndex
+        return if (array.isEmpty()){
+            println("Stack empty")
+            null
+        }else{
+            array.removeAt(number)
+        }
+
     }
 
     fun isEmpty(): Boolean {
-        return true
+        return array.isEmpty()
     }
 
 
 }
+
+

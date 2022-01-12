@@ -1,6 +1,3 @@
-import java.util.*
-
-
 fun main() {
     var sum = 0
     repeat(100) {
@@ -12,10 +9,12 @@ fun main() {
     }
     println(sum)
 
-    FireType.singleShot
-    FireType.machineGun(5)
-    println(FireType.machineGun(5))
+    FireType.SingleShot
+    FireType.MachineGun(5)
+    println(FireType.MachineGun(5))
 
+    var wep = Weapon(12, FireType.SingleShot).getBullet(Ammo.SECONDBULLET)
+    println(wep)
 
 
 }
