@@ -1,25 +1,34 @@
 class Weapon(maxAmmo: Int, fireType: FireType) : AbstractWeapon(maxAmmo, fireType) {
 
-    override var ammoMagazine: Stack<Int>
-        get() = TODO("Not yet implemented")
-        set(value) {}
+    override val ammoMagazine: Stack<Ammo>
+        get() = super.ammoMagazine
 
-    override var isLoaded: Boolean
-        get() = TODO("Not yet implemented")
-        set(value) {}
+    override val isLoaded: Boolean
+        get()  {
+
+            return if (ammoMagazine.isEmpty()) {
+                println("пустой")
+                false
+            } else{
+                println("полный")
+                true
+            }
+
+        }
 
 
-      override fun getBullet(ammotype: Ammo): Ammo {
+
+
+    override fun getBullet(ammotype: Ammo): Ammo {
         return super.getBullet(ammotype)
     }
 
-    override fun reloadWeapon(ammotype: Ammo) {
-
+    override fun reloadWeapon(ammoType: Ammo) {
+        super.reloadWeapon(ammoType)
     }
 
-
     override fun getAmmo() {
-        TODO("Not yet implemented")
+        super.getAmmo()
     }
 
 
