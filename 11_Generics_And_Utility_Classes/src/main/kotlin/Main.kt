@@ -1,4 +1,8 @@
 fun main() {
+
+
+    // здесь пока только проверка отдельных функций
+
     var sum = 0
     repeat(100) {
         val aa = Ammo.SECONDBULLET.gettingCurrentDamage()
@@ -13,12 +17,14 @@ fun main() {
     FireType.MachineGun(5)
     println(FireType.MachineGun(5))
 
+
     val wep = Weapon(12, FireType.SingleShot).getBullet(Ammo.SECONDBULLET)
     val wepp = Weapon(12, FireType.SingleShot)
     wepp.reloadWeapon(Ammo.BULLET)
     wepp.isLoaded
 
-    println(wepp)
+    //println(wepp)
+    println(wepp.getBullet(Ammo.THIRDBULLET))
 
 
 }

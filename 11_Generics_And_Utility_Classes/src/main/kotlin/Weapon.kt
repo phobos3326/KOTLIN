@@ -16,11 +16,8 @@ class Weapon(maxAmmo: Int, fireType: FireType) : AbstractWeapon(maxAmmo, fireTyp
 
         }
 
-
-
-
-    override fun getBullet(ammotype: Ammo): Ammo {
-        return super.getBullet(ammotype)
+    override fun getBullet(ammoType: Ammo): Ammo {
+        return super.getBullet(ammoType)
     }
 
     override fun reloadWeapon(ammoType: Ammo) {
