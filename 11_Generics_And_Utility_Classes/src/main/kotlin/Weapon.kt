@@ -4,28 +4,42 @@ class Weapon(maxAmmo: Int, fireType: FireType) : AbstractWeapon(maxAmmo, fireTyp
         get() = super.ammoMagazine
 
     override val isLoaded: Boolean
-        get()  {
-
+        get() {
             return if (ammoMagazine.isEmpty()) {
                 println("пустой")
                 false
-            } else{
+            } else {
                 println("полный")
                 true
             }
-
         }
 
-    override fun getBullet(ammoType: Ammo): Ammo {
-        return super.getBullet(ammoType)
+    override fun ammoRND(): Ammo {
+        return super.ammoRND()
     }
 
-    override fun reloadWeapon(ammoType: Ammo) {
-        super.reloadWeapon(ammoType)
+    override fun createAmmo(ammoType: Ammo): Ammo {
+        TODO("Not yet implemented")
+    }
+
+    /*override fun createAmmo(ammoType: Ammo): Ammo {
+        return createAmmo(ammoType)
+    }*/
+
+    /* override fun reloadWeapon() {
+         //super.reloadWeapon(ammoType)
+         ammoRND()
+     }*/
+
+    override fun reloadWeapon() {
+        repeat(maxAmmo) { ammoMagazine.push(ammoRND()) }
+
     }
 
     override fun getAmmo() {
-        super.getAmmo()
+        repeat(maxAmmo){
+          println(ammoMagazine.pop())   }
+
     }
 
 

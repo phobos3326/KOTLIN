@@ -7,9 +7,7 @@ fun main() {
     repeat(100) {
         val aa = Ammo.SECONDBULLET.gettingCurrentDamage()
         println(aa)
-        if (aa <= 50) sum += 1
-
-
+        if (aa == 70) sum += 1
     }
     println(sum)
 
@@ -18,15 +16,14 @@ fun main() {
     println(FireType.MachineGun(5))
 
 
-    val wep = Weapon(12, FireType.SingleShot).getBullet(Ammo.SECONDBULLET)
+//    val wep = Weapon(12, FireType.SingleShot).createAmmo(Ammo.SECONDBULLET)
     val wepp = Weapon(12, FireType.SingleShot)
-    wepp.reloadWeapon(Ammo.BULLET)
+   // wepp.reloadWeapon(Ammo.BULLET)
+
+    wepp.reloadWeapon()
     wepp.isLoaded
-
-    //println(wepp)
-    println(wepp.getBullet(Ammo.THIRDBULLET))
-
-
+ wepp.getAmmo()
+    wepp.isLoaded
 }
 
 

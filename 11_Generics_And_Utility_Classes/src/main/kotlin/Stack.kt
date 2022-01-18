@@ -7,12 +7,11 @@ class Stack<T> {
     }
 
     fun pop(): T? {
-        val number = array.lastIndex
         return if (array.isEmpty()) {
             println("Stack empty")
             null
         } else {
-            array.removeAt(number)
+            array.removeAt(array.lastIndex)
         }
 
     }

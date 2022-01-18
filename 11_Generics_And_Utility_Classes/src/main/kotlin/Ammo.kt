@@ -9,9 +9,9 @@ enum class Ammo(var damage: Int, val criticalDamageChance: Int, var criticalDama
 
     private fun Int.isDamage(): Boolean {
         val randomValues = Random.nextInt(1, 100)
-        return criticalDamageChance < randomValues
-
+        return criticalDamageChance > randomValues
     }
+
 
     fun gettingCurrentDamage(): Int {
 
