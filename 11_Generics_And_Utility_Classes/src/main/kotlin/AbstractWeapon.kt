@@ -1,37 +1,40 @@
 abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
 
-    open val ammoMagazine: Stack<Ammo> = Stack()
+    val ammoMagazine: Stack<Ammo> = Stack()
 
-    abstract val isLoaded: Boolean
-
-
-    abstract fun createAmmo(ammoType: Ammo): Ammo
-   /* {
-        return ammoType
-    }
-*/
-
-   /* open fun enumRnd():Ammo{
-        Ammo.values()
-        return a
-    }*/
+    val isLoaded: Boolean
+        get() = !ammoMagazine.isEmpty()
 
 
+    //abstract fun createAmmo(ammoType: Ammo): Ammo
+    /* {
+         return ammoType
+     }
+ */
 
-    open fun ammoRND(): Ammo {
+    /* open fun enumRnd():Ammo{
+         Ammo.values()
+         return a
+     }*/
+
+
+    fun createAmmo(): Ammo {
         val ammoValue = Ammo.values()
         val rnd = (0 until Ammo.values().size).random()
         println(ammoValue[rnd])
         return ammoValue[rnd]
     }
 
-    open fun reloadWeapon() {
-
-
-
-
+    fun reloadWeapon() {
+        repeat(maxAmmo) { ammoMagazine.push(createAmmo()) }
     }
 
-    abstract fun getAmmo()
+    fun getAmmo(): MutableList<Ammo> {
+        repeat(maxAmmo) {
+            println(ammoMagazine.pop())
+        }
+        return ammoMagazine.array
+    }
+
 
 }

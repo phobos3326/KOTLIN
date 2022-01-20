@@ -18,12 +18,12 @@ fun main() {
 
 //    val wep = Weapon(12, FireType.SingleShot).createAmmo(Ammo.SECONDBULLET)
     val wepp = Weapon(12, FireType.SingleShot)
-   // wepp.reloadWeapon(Ammo.BULLET)
+    // wepp.reloadWeapon(Ammo.BULLET)
 
     wepp.reloadWeapon()
-    wepp.isLoaded
- wepp.getAmmo()
-    wepp.isLoaded
+    println(wepp.isLoaded)
+    wepp.getAmmo()
+    println(wepp.isLoaded)
 }
 
 

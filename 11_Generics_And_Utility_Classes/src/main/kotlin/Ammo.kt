@@ -1,6 +1,6 @@
 import kotlin.random.Random
 
-enum class Ammo(var damage: Int, val criticalDamageChance: Int, var criticalDamageCoeff: Float) {
+enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDamageCoeff: Float) {
 
 
     BULLET(damage = 10, criticalDamageChance = 10, criticalDamageCoeff = 0.5f),

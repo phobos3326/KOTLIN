@@ -7,13 +7,7 @@ class Stack<T> {
     }
 
     fun pop(): T? {
-        return if (array.isEmpty()) {
-            println("Stack empty")
-            null
-        } else {
-            array.removeAt(array.lastIndex)
-        }
-
+        return array.removeLastOrNull()
     }
 
     fun isEmpty(): Boolean {
