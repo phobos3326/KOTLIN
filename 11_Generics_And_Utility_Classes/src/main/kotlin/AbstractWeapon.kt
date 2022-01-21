@@ -29,11 +29,18 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
         repeat(maxAmmo) { ammoMagazine.push(createAmmo()) }
     }
 
-    fun getAmmo(): MutableList<Ammo> {
+    fun getAmmo(): Array<Ammo> {
+        val fireType = FireType.SingleShot
+        val fireType2 = FireType.MachineGun
+        when(fireType){
+            FireType.SingleShot -> ammoMagazine.pop()
+            FireType.MachineGun -> ammoMagazine.pop()
+        }
+
         repeat(maxAmmo) {
             println(ammoMagazine.pop())
         }
-        return ammoMagazine.array
+        return Ammo.values()
     }
 
 
