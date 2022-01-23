@@ -26,10 +26,10 @@ fun main() {
     pistol.getAmmo()
     println(pistol.isLoaded)*/
 
-    val pistol = Weapons.createPistol()
-    println(pistol.isLoaded)
-    pistol.getAmmo()
-    println(pistol.isLoaded)
+    val weapon = Weapons.createAssaultRifle()
+    println(weapon.isLoaded)
+    weapon.getAmmo()
+    println(weapon.isLoaded)
 }
 
 

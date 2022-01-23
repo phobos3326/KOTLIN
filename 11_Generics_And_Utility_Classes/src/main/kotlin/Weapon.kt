@@ -11,7 +11,7 @@ object Weapons {
     }
 
 
-    fun assaultRifle(): AbstractWeapon {
+    fun createAssaultRifle(): AbstractWeapon {
         val assaultRifle = object : AbstractWeapon(
             30, fireType = FireType.MachineGun(3)
         ) {}

@@ -4,5 +4,4 @@ sealed class FireType {
 
     data class MachineGun(val queueSize: Int) : FireType()
 
-
 }
