@@ -28,7 +28,10 @@ fun main() {
 
     val weapon = Weapons.createAssaultRifle()
     println(weapon.isLoaded)
-    weapon.getAmmo()
+    repeat(10) {
+        weapon.getAmmo()
+        println("______________")
+    }
     println(weapon.isLoaded)
 }
 

@@ -34,7 +34,8 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
             when (fireType) {
                 FireType.SingleShot -> ammoMagazine.pop()
                 is FireType.MachineGun -> repeat(fireType.queueSize){
-                    ammoMagazine.pop()
+
+                    println("выстрел ${ammoMagazine.pop()}")
                 }
             }
         return Ammo.values()
