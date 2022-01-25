@@ -16,22 +16,14 @@ fun main() {
     println(FireType.MachineGun(5))
 
 
-//    val wep = Weapon(12, FireType.SingleShot).createAmmo(Ammo.SECONDBULLET)
-    //val wepp = Weapons()
-
-    // wepp.reloadWeapon(Ammo.BULLET)
-/*
-    pistol.reloadWeapon()
-    println(pistol.isLoaded)
-    pistol.getAmmo()
-    println(pistol.isLoaded)*/
 
     val weapon = Weapons.createAssaultRifle()
     println(weapon.isLoaded)
-    repeat(10) {
+    repeat(5) {
         weapon.getAmmo()
         println("______________")
     }
+    weapon.reloadWeapon()
     println(weapon.isLoaded)
 }
 
