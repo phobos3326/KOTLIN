@@ -17,13 +17,12 @@ fun main() {
 
 
 
-    val weapon = Weapons.createAssaultRifle()
+    val weapon = Weapons.sniperRifle()
     println(weapon.isLoaded)
-    repeat(5) {
+    repeat(25) {
         weapon.getAmmo()
         println("______________")
     }
-    weapon.reloadWeapon()
     println(weapon.isLoaded)
 }
 

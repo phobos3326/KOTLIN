@@ -28,27 +28,26 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
     abstract fun createAmmo(): Ammo
 
 
-    fun reloadWeapon() {
-        if (isLoaded) {
-            println("еще есть патроны")
-        } else {
-            repeat(maxAmmo)
-            {
-                ammoMagazine.push(createAmmo())
-                println("заряжен")
-            }
+    fun reloadWeapon(): Stack<Ammo> {
+        repeat(maxAmmo)
+        {
+            ammoMagazine.push(createAmmo())
         }
-
+        return ammoMagazine
     }
 
     fun getAmmo(): Array<Ammo> {
-
+        if (isLoaded) {
+            println("еще есть патроны")
+        } else {
+            reloadWeapon()
+            println("--> заряжен <--")
+        }
         when (fireType) {
             FireType.SingleShot -> {
                 ammoMagazine.pop()
                 println("одиночный выстрел")
             }
-
             is FireType.MachineGun -> repeat(fireType.queueSize) {
                 println("выстрел ${ammoMagazine.pop()}")
             }
