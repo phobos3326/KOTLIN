@@ -1,6 +1,6 @@
 abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
 
-    private val ammoMagazine: Stack<Ammo> = Stack()
+     val ammoMagazine: Stack<Ammo> = Stack()
 
     val isLoaded: Boolean
         get() = !ammoMagazine.isEmpty()
@@ -29,6 +29,7 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
 
 
     fun reloadWeapon(): Stack<Ammo> {
+     // val magazine = ammoMagazine
         repeat(maxAmmo)
         {
             ammoMagazine.push(createAmmo())

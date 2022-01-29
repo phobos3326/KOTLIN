@@ -10,6 +10,8 @@ object Weapons {
             override fun createAmmo(): Ammo {
                 return Ammo.BULLET
             }
+
+           // override val ammoMagazine: Stack<Ammo> = Stack()
         }
 
         pistol.reloadWeapon()
@@ -25,6 +27,7 @@ object Weapons {
             override fun createAmmo(): Ammo {
                 return Ammo.SECONDBULLET
             }
+           // override val ammoMagazine: Stack<Ammo> = Stack()
         }
         assaultRifle.reloadWeapon()
         return assaultRifle
@@ -38,6 +41,7 @@ object Weapons {
             override fun createAmmo(): Ammo {
                 return Ammo.THIRDBULLET
             }
+            //override val ammoMagazine: Stack<Ammo> = Stack()
         }
         machineGun.reloadWeapon()
         return machineGun
@@ -49,6 +53,7 @@ object Weapons {
             override fun createAmmo(): Ammo {
                 return Ammo.THIRDBULLET
             }
+            //override val ammoMagazine: Stack<Ammo> = Stack()
         }
         sniperRifle.reloadWeapon()
         return sniperRifle

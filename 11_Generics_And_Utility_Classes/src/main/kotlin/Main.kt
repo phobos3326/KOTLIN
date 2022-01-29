@@ -18,12 +18,15 @@ fun main() {
 
 
     val weapon = Weapons.sniperRifle()
+    val wep2 = Weapons.createPistol()
     println(weapon.isLoaded)
-    repeat(25) {
+    repeat(3) {
         weapon.getAmmo()
         println("______________")
     }
     println(weapon.isLoaded)
+
+    println(wep2.isLoaded)
 }
 
 
