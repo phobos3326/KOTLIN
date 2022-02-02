@@ -4,8 +4,7 @@ import kotlin.random.Random
 
 enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDamageCoeff: Float) {
 
-
-    BULLET(damage = 10, criticalDamageChance = 10, criticalDamageCoeff = 0.5f),
+    BULLET(damage = 50, criticalDamageChance = 10, criticalDamageCoeff = 0.5f),
     SECONDBULLET(damage = 50, criticalDamageChance = 25, criticalDamageCoeff = 1.4f),
     THIRDBULLET(damage = 80, criticalDamageChance = 40, criticalDamageCoeff = 1f);
 
@@ -13,7 +12,6 @@ enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDama
         val randomValues = Random.nextInt(1, 100)
         return criticalDamageChance > randomValues
     }
-
 
     fun gettingCurrentDamage(): Int {
 
@@ -23,6 +21,5 @@ enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDama
             damage
         }
     }
-
 
 }

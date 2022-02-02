@@ -1,4 +1,5 @@
 import warrior.General
+import warrior.Soldier
 import weapon.Ammo
 import weapon.Weapons
 
@@ -10,11 +11,10 @@ fun main() {
     var sum = 0
     repeat(100) {
         val aa = Ammo.SECONDBULLET.gettingCurrentDamage()
-       // println(aa)
+        // println(aa)
         if (aa == 70) sum += 1
     }
     println("$sum  70")
-
 
 
     /*val weapon = Weapons.createSniperRifle()
@@ -27,10 +27,14 @@ fun main() {
     println(weapon.isLoaded)*/
     //val wep2 = Weapons.createPistol()
     //println(wep2.isLoaded)
+    val soldier = Soldier()
 
-    val gen = General().getDamage(80)
+    val general = General()
+    repeat(1){ general.attack(soldier)}
 
-    println(gen)
+
+    //println(general.toString())
+    println(soldier)
 
 }
 

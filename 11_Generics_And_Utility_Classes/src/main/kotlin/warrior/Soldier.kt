@@ -3,8 +3,8 @@ package warrior
 import weapon.AbstractWeapon
 import weapon.Weapons
 
-class General : AbstractWarrior() {
-    override val maxHealth: Int = 100
+class Soldier : AbstractWarrior() {
+    override val maxHealth: Int = 80
 
     override val avoidance: Int
         get() = 70
@@ -15,13 +15,8 @@ class General : AbstractWarrior() {
     override var currentHealth: Int = maxHealth
 
     override val weapon: AbstractWeapon
-        get() = Weapons.createSniperRifle()
+        get() = Weapons.createPistol()
 
     override val chanceOfAvoidingDamage: Int = 80
 
-
-
 }
-
-
-
