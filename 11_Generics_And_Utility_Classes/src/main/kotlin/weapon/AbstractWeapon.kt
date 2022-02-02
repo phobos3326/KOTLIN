@@ -1,3 +1,7 @@
+package weapon
+
+import Stack
+
 abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
 
     private var ammoMagazine: Stack<Ammo> = Stack()

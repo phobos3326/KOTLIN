@@ -1,3 +1,5 @@
+package weapon
+
 sealed class FireType {
 
     object SingleShot : FireType()

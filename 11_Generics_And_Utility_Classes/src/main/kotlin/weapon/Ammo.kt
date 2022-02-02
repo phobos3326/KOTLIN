@@ -1,3 +1,5 @@
+package weapon
+
 import kotlin.random.Random
 
 enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDamageCoeff: Float) {

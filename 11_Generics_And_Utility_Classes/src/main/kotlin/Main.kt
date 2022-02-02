@@ -1,3 +1,7 @@
+import warrior.General
+import weapon.Ammo
+import weapon.Weapons
+
 fun main() {
 
 
@@ -13,16 +17,21 @@ fun main() {
 
 
 
-    val weapon = Weapons.sniperRifle()
-    val wep2 = Weapons.createPistol()
+    /*val weapon = Weapons.createSniperRifle()
+
     println(weapon.isLoaded)
     repeat(29) {
         weapon.getAmmo()
         println("______________")
     }
-    println(weapon.isLoaded)
+    println(weapon.isLoaded)*/
+    //val wep2 = Weapons.createPistol()
+    //println(wep2.isLoaded)
 
-    println(wep2.isLoaded)
+    val gen = General().getDamage(80)
+
+    println(gen)
+
 }
 
 
