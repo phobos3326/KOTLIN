@@ -1,29 +1,39 @@
 package warrior
 
 import weapon.AbstractWeapon
+import kotlin.random.Random
 
 abstract class AbstractWarrior : Warrior {
 
     abstract val maxHealth: Int
-    abstract val avoidance: Int
-    abstract val accuracy: Int
+    abstract var avoidance: Int
+    abstract var accuracy: Int
     abstract var currentHealth: Int
     abstract val weapon: AbstractWeapon
 
-    override val isKilled: Boolean
-        get() = currentHealth <= 0
+    override var isKilled: Boolean = false
+
 
     override fun getDamage(incomingDamage: Int): Int {
         currentHealth -= incomingDamage
+        if (currentHealth<0){
+            isKilled = true
+        }
         return currentHealth
     }
 
     override fun attack(enemyWarrior: Warrior) {
         if (!weapon.isLoaded) {
             weapon.reloadWeapon()
-        } else {
-            weapon.getAmmo()
-            enemyWarrior.getDamage(weapon.createAmmo().damage)
+        } else if (isAccuracy() >= enemyWarrior.chanceOfAvoidingDamage) {
+            // weapon.getAmmo()
+            enemyWarrior.getDamage(weapon.getAmmo())
         }
+    }
+
+    private fun isAccuracy(): Int {
+        var randomValues = Random.nextInt(accuracy, 100)
+        accuracy = randomValues
+        return accuracy
     }
 }

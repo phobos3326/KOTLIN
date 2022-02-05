@@ -2,7 +2,7 @@ package warrior
 
 interface Warrior {
 
-    val isKilled:Boolean
+    var isKilled:Boolean
     val chanceOfAvoidingDamage: Int
 
 

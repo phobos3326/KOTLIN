@@ -2,21 +2,22 @@ package warrior
 
 import weapon.AbstractWeapon
 import weapon.Weapons
+import kotlin.random.Random
 
 class Soldier : AbstractWarrior() {
-    override val maxHealth: Int = 80
+    override val maxHealth: Int = 200
 
-    override val avoidance: Int
-        get() = 70
+    override var avoidance: Int = 50
 
-    override val accuracy: Int
-        get() = 80
+    override var accuracy: Int = 60
 
     override var currentHealth: Int = maxHealth
 
-    override val weapon: AbstractWeapon
-        get() = Weapons.createPistol()
+    override val weapon: AbstractWeapon = Weapons.createAssaultRifle()
 
     override val chanceOfAvoidingDamage: Int = 80
+
+
+
 
 }

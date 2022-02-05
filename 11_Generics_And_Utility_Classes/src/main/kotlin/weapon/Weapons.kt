@@ -5,7 +5,6 @@ object Weapons {
         val pistol = object : AbstractWeapon(
             maxAmmo = 12,
             fireType = FireType.SingleShot
-
         ) {
             override fun createAmmo(): Ammo {
                 return Ammo.BULLET
@@ -18,21 +17,21 @@ object Weapons {
 
     fun createAssaultRifle(): AbstractWeapon {
         val assaultRifle = object : AbstractWeapon(
-            maxAmmo = 30, fireType = FireType.MachineGun(3),
+            maxAmmo = 30,
+            fireType = FireType.MachineGun(3),
         ) {
             override fun createAmmo(): Ammo {
                 return Ammo.SECONDBULLET
             }
-
         }
         assaultRifle.reloadWeapon()
         return assaultRifle
-
     }
 
     fun createMachineGun(): AbstractWeapon {
         val machineGun = object : AbstractWeapon(
-            maxAmmo = 60, fireType = FireType.MachineGun(8),
+            maxAmmo = 60,
+            fireType = FireType.MachineGun(8),
         ) {
             override fun createAmmo(): Ammo {
                 return Ammo.THIRDBULLET
@@ -43,7 +42,10 @@ object Weapons {
     }
 
     fun createSniperRifle(): AbstractWeapon {
-        val sniperRifle = object : AbstractWeapon(maxAmmo = 10, fireType = FireType.SingleShot) {
+        val sniperRifle = object : AbstractWeapon(
+            maxAmmo = 10,
+            fireType = FireType.SingleShot
+        ) {
             override fun createAmmo(): Ammo {
                 return Ammo.THIRDBULLET
             }
@@ -51,5 +53,4 @@ object Weapons {
         sniperRifle.reloadWeapon()
         return sniperRifle
     }
-
 }

@@ -21,7 +21,8 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
         ammoMagazine = magazine
     }
 
-    fun getAmmo(): Array<Ammo> {
+    fun getAmmo(): Int {
+        var a =0
         if (isLoaded) {
             println("еще есть патроны")
         } else {
@@ -30,15 +31,23 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
         }
         when (fireType) {
             FireType.SingleShot -> {
-                ammoMagazine.pop()
+              a=  ammoMagazine.pop()?.gettingCurrentDamage()!!
                 println("одиночный выстрел")
             }
-            is FireType.MachineGun -> repeat(fireType.queueSize) {
-                println("выстрел ${ammoMagazine.pop()}")
-            }
+
+            is FireType.MachineGun ->
+
+                /*  repeat(fireType.queueSize) {
+                  a = ammoMagazine.pop()?.gettingCurrentDamage()
+              }*/
+
+                for (i in 1..fireType.queueSize) {
+                    a += ammoMagazine.pop()?.gettingCurrentDamage()!!
+                    println("очередь $a")
+                }
+
         }
-        return Ammo.values()
+
+        return a
     }
-
-
 }
