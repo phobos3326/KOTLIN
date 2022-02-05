@@ -28,6 +28,9 @@ abstract class AbstractWarrior : Warrior {
         } else if (isAccuracy() >= enemyWarrior.chanceOfAvoidingDamage) {
             // weapon.getAmmo()
             enemyWarrior.getDamage(weapon.getAmmo())
+        } else if (isAccuracy() < enemyWarrior.chanceOfAvoidingDamage) {
+            println("is missed")
+
         }
     }
 
