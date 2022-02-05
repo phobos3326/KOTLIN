@@ -21,5 +21,4 @@ enum class Ammo(val damage: Int, val criticalDamageChance: Int, val criticalDama
             damage
         }
     }
-
 }

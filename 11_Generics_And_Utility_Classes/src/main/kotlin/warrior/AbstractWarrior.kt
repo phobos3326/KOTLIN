@@ -30,12 +30,11 @@ abstract class AbstractWarrior : Warrior {
             enemyWarrior.getDamage(weapon.getAmmo())
         } else if (isAccuracy() < enemyWarrior.chanceOfAvoidingDamage) {
             println("is missed")
-
         }
     }
 
     private fun isAccuracy(): Int {
-        var randomValues = Random.nextInt(accuracy, 100)
+        val randomValues = Random.nextInt(accuracy, 100)
         accuracy = randomValues
         return accuracy
     }

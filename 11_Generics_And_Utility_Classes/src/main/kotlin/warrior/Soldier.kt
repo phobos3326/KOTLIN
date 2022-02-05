@@ -2,7 +2,6 @@ package warrior
 
 import weapon.AbstractWeapon
 import weapon.Weapons
-import kotlin.random.Random
 
 class Soldier : AbstractWarrior() {
     override val maxHealth: Int = 200
