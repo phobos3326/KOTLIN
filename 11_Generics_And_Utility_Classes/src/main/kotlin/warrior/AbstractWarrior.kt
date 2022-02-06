@@ -16,26 +16,22 @@ abstract class AbstractWarrior : Warrior {
 
     override fun getDamage(incomingDamage: Int): Int {
         currentHealth -= incomingDamage
-        if (currentHealth<0){
+        if (currentHealth < 0) {
             isKilled = true
         }
         return currentHealth
     }
 
     override fun attack(enemyWarrior: Warrior) {
+        val randomValues = Random.nextInt(accuracy, 100)
         if (!weapon.isLoaded) {
             weapon.reloadWeapon()
-        } else if (isAccuracy() >= enemyWarrior.chanceOfAvoidingDamage) {
-            // weapon.getAmmo()
+        } else if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
             enemyWarrior.getDamage(weapon.getAmmo())
-        } else if (isAccuracy() < enemyWarrior.chanceOfAvoidingDamage) {
+        } else if (randomValues < enemyWarrior.chanceOfAvoidingDamage) {
             println("is missed")
         }
     }
 
-    private fun isAccuracy(): Int {
-        val randomValues = Random.nextInt(accuracy, 100)
-        accuracy = randomValues
-        return accuracy
-    }
+
 }

@@ -40,7 +40,7 @@ fun main() {
             println(general.currentHealth)
             soldier.attack(general)
         } else
-            break
+           break
     }
 
 }
