@@ -22,12 +22,14 @@ abstract class AbstractWarrior : Warrior {
         return currentHealth
     }
 
-    override fun attack(enemyWarrior: Warrior) {
+    override fun attack(enemyWarrior: AbstractWarrior) {
         val randomValues = Random.nextInt(accuracy, 100)
         if (!weapon.isLoaded) {
             weapon.reloadWeapon()
         } else if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
-            enemyWarrior.getDamage(weapon.getAmmo())
+            var a =0
+            weapon.getAmmo().forEach { ammo -> a+= ammo.damage }
+            enemyWarrior.getDamage(a)
         } else if (randomValues < enemyWarrior.chanceOfAvoidingDamage) {
             println("is missed")
         }

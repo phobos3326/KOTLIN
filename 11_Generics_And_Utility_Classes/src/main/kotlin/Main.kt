@@ -1,6 +1,7 @@
 import warrior.General
 import warrior.Soldier
-import warrior.Team
+import weapon.Ammo
+import weapon.Weapons
 
 fun main() {
 
@@ -29,46 +30,19 @@ fun main() {
     //println(wep2.isLoaded)
 
 
-  /*  val soldier = Soldier()
+    val soldier = Soldier()
 
     val general = General()
 
 
-    for (i in 1..2) {
+    for (i in 1..general.maxHealth) {
         if (!general.isKilled) {
             println(general.currentHealth)
             soldier.attack(general)
         } else
-            break
-    }*/
-
-    val team = Team()
-    team.createTeam()
-    val team2 = Team()
-    team2.createTeam()
-
-
-
-
-
-  /*  team.createTeam()
-    team2.createTeam()
-
-
-    team.arrayFirstTeam.forEach {
-        println(it)
+           break
     }
-    println("________________________")
-    team.arraySecondTeam.forEach {
-        println(it)
-    }*/
-
-
-    val battle =Battle()
-    battle.goBattle()
-    println(battle.getBattleInfo(team))
-    println(battle.getBattleInfo(team2))
-
+println(general.currentHealth)
 }
 
 
