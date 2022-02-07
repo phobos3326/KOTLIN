@@ -11,7 +11,7 @@ object Weapons {
             }
         }
         pistol.reloadWeapon()
-        println("пистолет")
+       // println("пистолет")
         return pistol
     }
 

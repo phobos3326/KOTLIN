@@ -21,25 +21,25 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
     }
 
     fun getAmmo(): Int {
-        var a = 0
+        var currentDamage = 0
         if (isLoaded) {
-            println("еще есть патроны")
+            //println("еще есть патроны")
         } else {
             reloadWeapon()
-            println("--> заряжен <--")
+          //  println("--> заряжен <--")
         }
         when (fireType) {
             FireType.SingleShot -> {
-                a = ammoMagazine.pop()?.gettingCurrentDamage()!!
-                println("одиночный выстрел")
+                currentDamage = ammoMagazine.pop()?.gettingCurrentDamage()!!
+               // println("одиночный выстрел")
             }
 
-            is FireType.MachineGun ->
+            is FireType.MachineGun->
                 for (i in 1..fireType.queueSize) {
-                    a += ammoMagazine.pop()?.gettingCurrentDamage()!!
-                    println("очередь $a")
+                    currentDamage += ammoMagazine.pop()?.gettingCurrentDamage()!!
+                   // println("очередь $currentDamage")
                 }
         }
-        return a
+        return currentDamage
     }
 }
