@@ -6,5 +6,5 @@ interface Warrior {
     val chanceOfAvoidingDamage: Int
 
     fun attack(enemyWarrior: AbstractWarrior)
-    fun getDamage(incomingDamage:Int):Int
+    fun getDamage(incomingDamage:Int)
 }

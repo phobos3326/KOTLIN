@@ -12,14 +12,15 @@ abstract class AbstractWarrior : Warrior {
     abstract val weapon: AbstractWeapon
 
     override var isKilled: Boolean = false
+        get()=  currentHealth <= 0
 
 
-    override fun getDamage(incomingDamage: Int): Int {
+
+    override fun getDamage(incomingDamage: Int) {
         currentHealth -= incomingDamage
         if (currentHealth <= 0) {
             isKilled = true
         }
-        return currentHealth
     }
 
     override fun attack(enemyWarrior: AbstractWarrior) {
@@ -27,8 +28,8 @@ abstract class AbstractWarrior : Warrior {
         if (!weapon.isLoaded) {
             weapon.reloadWeapon()
         } else if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
-            var a =0
-            weapon.getAmmo().forEach { ammo -> a+= ammo.gettingCurrentDamage() }
+            var a = 0
+            weapon.getAmmo().forEach { ammo -> a += ammo.gettingCurrentDamage() }
             enemyWarrior.getDamage(a)
             println("damage $a")
         } else if (randomValues < enemyWarrior.chanceOfAvoidingDamage) {
