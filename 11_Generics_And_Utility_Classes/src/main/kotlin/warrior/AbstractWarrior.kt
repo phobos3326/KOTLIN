@@ -16,7 +16,7 @@ abstract class AbstractWarrior : Warrior {
 
     override fun getDamage(incomingDamage: Int): Int {
         currentHealth -= incomingDamage
-        if (currentHealth < 0) {
+        if (currentHealth <= 0) {
             isKilled = true
         }
         return currentHealth
@@ -28,8 +28,9 @@ abstract class AbstractWarrior : Warrior {
             weapon.reloadWeapon()
         } else if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
             var a =0
-            weapon.getAmmo().forEach { ammo -> a+= ammo.damage }
+            weapon.getAmmo().forEach { ammo -> a+= ammo.gettingCurrentDamage() }
             enemyWarrior.getDamage(a)
+            println("damage $a")
         } else if (randomValues < enemyWarrior.chanceOfAvoidingDamage) {
             println("is missed")
         }

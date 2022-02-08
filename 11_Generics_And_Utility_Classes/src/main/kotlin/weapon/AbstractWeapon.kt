@@ -38,8 +38,11 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
             }
 
             is FireType.MachineGun->
-                // println("очередь $currentDamage")
-                for (i in 1..fireType.queueSize) ammoMagazine.pop()?.let { tempArray += it }
+
+                for (i in 1..fireType.queueSize) ammoMagazine.pop()?.let { tempArray += it
+
+                    println("очередь ")
+                }
         }
         return tempArray
     }
