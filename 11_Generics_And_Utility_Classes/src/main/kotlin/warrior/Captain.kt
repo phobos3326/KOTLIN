@@ -16,6 +16,8 @@ class Captain : AbstractWarrior() {
 
     override val chanceOfAvoidingDamage: Int = 80
 
-
+    fun createWarrior(): AbstractWarrior {
+        return Captain()
+    }
 
 }

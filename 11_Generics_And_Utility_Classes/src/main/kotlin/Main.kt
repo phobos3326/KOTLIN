@@ -14,16 +14,19 @@ fun main() {
     val general = General()
 
 
-    for (i in 1..general.maxHealth) {
-        if (!general.isKilled) {
-            println(general.currentHealth)
-            soldier.attack(general)
-        } else
-            break
-    }
-    println(general.currentHealth)
+    /* for (i in 1..general.maxHealth) {
+         if (!general.isKilled) {
+             println(general.currentHealth)
+             soldier.attack(general)
+         } else
+             break
+     }
+     println(general.currentHealth)
+ */
 
-
+    val battle = Battle()
+    battle.goBattle()
+    //battle.getBattleInfo()
 }
 
 

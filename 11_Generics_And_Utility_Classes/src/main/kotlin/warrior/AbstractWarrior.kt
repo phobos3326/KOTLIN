@@ -18,9 +18,9 @@ abstract class AbstractWarrior : Warrior {
 
     override fun getDamage(incomingDamage: Int) {
         currentHealth -= incomingDamage
-        if (currentHealth <= 0) {
+       /* if (currentHealth <= 0) {
             isKilled = true
-        }
+        }*/
     }
 
     override fun attack(enemyWarrior: AbstractWarrior) {

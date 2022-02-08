@@ -16,7 +16,9 @@ class Soldier : AbstractWarrior() {
 
     override val chanceOfAvoidingDamage: Int = 80
 
-
+    fun createWarrior(): AbstractWarrior {
+        return Soldier()
+    }
 
 
 }
