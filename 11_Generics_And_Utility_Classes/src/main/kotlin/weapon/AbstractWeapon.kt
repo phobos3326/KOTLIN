@@ -6,7 +6,7 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
 
     private var ammoMagazine: Stack<Ammo> = Stack()
 
-    val isLoaded: Boolean
+    private val isLoaded: Boolean
         get() = !ammoMagazine.isEmpty()
 
     abstract fun createAmmo(): Ammo
@@ -21,26 +21,18 @@ abstract class AbstractWeapon(val maxAmmo: Int, val fireType: FireType) {
     }
 
     fun getAmmo(): List<Ammo> {
-        var currentDamage = 0
         val tempArray = mutableListOf<Ammo>()
-        if (isLoaded) {
-            //println("еще есть патроны")
-        } else {
+        if (!isLoaded) {
             reloadWeapon()
-          //  println("--> заряжен <--")
+            println("перезарядил ")
         }
         when (fireType) {
             FireType.SingleShot -> {
-
-
-               // println("одиночный выстрел")
                 ammoMagazine.pop()?.let { tempArray.add(it) }
             }
-
-            is FireType.MachineGun->
-
-                for (i in 1..fireType.queueSize) ammoMagazine.pop()?.let { tempArray += it
-
+            is FireType.MachineGun ->
+                for (i in 1..fireType.queueSize) ammoMagazine.pop()?.let {
+                    tempArray += it
                     println("очередь ")
                 }
         }

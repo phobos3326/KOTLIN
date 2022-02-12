@@ -16,10 +16,18 @@ class General : AbstractWarrior() {
 
     override val chanceOfAvoidingDamage: Int = 80
 
-    fun createWarrior(): AbstractWarrior {
-        return General()
+    override val name: String
+        get() = "генерал"
+
+    companion object {
+        fun createWarrior(): AbstractWarrior {
+            return General()
+        }
     }
 
+    override fun toString(): String {
+        return "$name, текущее здоровье $currentHealth"
+    }
 }
 
 

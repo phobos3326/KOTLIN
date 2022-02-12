@@ -6,6 +6,7 @@ import weapon.Weapons
 fun main() {
 
 
+
     // здесь пока только проверка отдельных функций
 
 
@@ -26,7 +27,13 @@ fun main() {
 
     val battle = Battle()
     battle.goBattle()
+    //battle.statusBattle()
     //battle.getBattleInfo()
-}
 
+
+
+
+
+
+}
 

@@ -2,7 +2,7 @@ package warrior
 
 interface Warrior {
 
-    var isKilled:Boolean
+    val isKilled:Boolean
     val chanceOfAvoidingDamage: Int
 
     fun attack(enemyWarrior: AbstractWarrior)

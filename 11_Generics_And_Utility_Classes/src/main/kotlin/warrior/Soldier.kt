@@ -15,10 +15,17 @@ class Soldier : AbstractWarrior() {
     override val weapon: AbstractWeapon = Weapons.createAssaultRifle()
 
     override val chanceOfAvoidingDamage: Int = 80
+    override val name: String = "солдат"
 
-    fun createWarrior(): AbstractWarrior {
-        return Soldier()
+
+
+    companion object{
+        fun createWarrior(): AbstractWarrior {
+            return Soldier()
+        }
     }
 
-
+    override fun toString(): String {
+        return "$name, текущее здоровье $currentHealth"
+    }
 }

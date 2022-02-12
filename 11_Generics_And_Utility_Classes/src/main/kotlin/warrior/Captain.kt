@@ -12,12 +12,21 @@ class Captain : AbstractWarrior() {
 
     override var currentHealth: Int = maxHealth
 
-    override val weapon: AbstractWeapon = Weapons.createMachineGun()
+    override val weapon: AbstractWeapon = Weapons.createSniperRifle()
 
     override val chanceOfAvoidingDamage: Int = 80
 
-    fun createWarrior(): AbstractWarrior {
-        return Captain()
+    override val name = "капитан"
+
+
+    companion object {
+        fun createWarrior(): AbstractWarrior {
+            return Captain()
+        }
+    }
+
+    override fun toString(): String {
+        return "$name, текущее здоровье $currentHealth"
     }
 
 }

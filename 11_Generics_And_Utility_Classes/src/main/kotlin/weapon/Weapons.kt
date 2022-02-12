@@ -10,7 +10,7 @@ object Weapons {
                 return Ammo.BULLET
             }
         }
-        pistol.reloadWeapon()
+        //pistol.reloadWeapon()
        // println("пистолет")
         return pistol
     }
@@ -24,7 +24,7 @@ object Weapons {
                 return Ammo.SECONDBULLET
             }
         }
-        assaultRifle.reloadWeapon()
+     //  assaultRifle.reloadWeapon()
         return assaultRifle
     }
 
@@ -37,7 +37,7 @@ object Weapons {
                 return Ammo.THIRDBULLET
             }
         }
-        machineGun.reloadWeapon()
+        //machineGun.reloadWeapon()
         return machineGun
     }
 
@@ -50,7 +50,7 @@ object Weapons {
                 return Ammo.THIRDBULLET
             }
         }
-        sniperRifle.reloadWeapon()
+       // sniperRifle.reloadWeapon()
         return sniperRifle
     }
 }

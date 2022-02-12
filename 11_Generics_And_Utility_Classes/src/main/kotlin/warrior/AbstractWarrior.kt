@@ -10,8 +10,9 @@ abstract class AbstractWarrior : Warrior {
     abstract var accuracy: Int
     abstract var currentHealth: Int
     abstract val weapon: AbstractWeapon
+    abstract val name:String
 
-    override var isKilled: Boolean = false
+    override val isKilled: Boolean
         get()=  currentHealth <= 0
 
 
@@ -25,17 +26,20 @@ abstract class AbstractWarrior : Warrior {
 
     override fun attack(enemyWarrior: AbstractWarrior) {
         val randomValues = Random.nextInt(accuracy, 100)
-        if (!weapon.isLoaded) {
+        /*if (!weapon.isLoaded) {
             weapon.reloadWeapon()
-        } else if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
-            var a = 0
-            weapon.getAmmo().forEach { ammo -> a += ammo.gettingCurrentDamage() }
-            enemyWarrior.getDamage(a)
-            println("damage $a")
+            println("пропустил ход")*/
+         if (randomValues >= enemyWarrior.chanceOfAvoidingDamage) {
+            var summOfAmmoDamage = 0
+            weapon.getAmmo().forEach { ammo -> summOfAmmoDamage += ammo.gettingCurrentDamage() }
+            enemyWarrior.getDamage(summOfAmmoDamage)
+            println("damage $summOfAmmoDamage")
         } else if (randomValues < enemyWarrior.chanceOfAvoidingDamage) {
             println("is missed")
         }
     }
 
-
+    override fun toString(): String {
+        return "$name, текущее здоровье $currentHealth"
+    }
 }
