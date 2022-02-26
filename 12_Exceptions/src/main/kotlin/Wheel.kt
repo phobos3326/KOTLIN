@@ -4,44 +4,50 @@ import kotlin.random.nextInt
 
 class Wheel {
 
-  // val eee =Random.nextInt(0..10)
-
-     private var currentPressure: Int = Random.nextInt(0..10)
-
-
-
-    /* private fun inputValue(): Int {
-       val rnd=  Scanner(System.`in`).nextInt()
-         return rnd
-     }*/
-
+    private var currentPressure = Random.nextInt(0..10).toFloat()
 
     fun inflateWheel() {
-        val rnd = Scanner(System.`in`).nextInt()
         checkCurrentPressure()
+        while (currentPressure !in 1.5..3.0) {
 
-     /*   if (currentPressure < 1) {
-            throw TooLowPressure()
-
-        } else {
-            currentPressure = rnd
-
-        }*/
-
-
-
+            println("введите давление на которое хотите изменить текущее")
+            val scanner = Scanner(System.`in`).nextFloat()
+            val tmpPressure = currentPressure + scanner
+            if (tmpPressure < 0 || tmpPressure > 10) {
+                checkCurrentPressure()
+            } else {
+                currentPressure = tmpPressure
+                checkCurrentPressure()
+            }
+        }
     }
 
-    fun checkCurrentPressure() {
-
-
-        if (currentPressure<1 ||currentPressure>3){
-            throw IncorrectPressure()
+    private fun exceptionPressure() {
+        if (currentPressure in 0.0..1.0) {
+            throw TooLowPressure("низкое давление  $currentPressure")
+        } else if (currentPressure > 3 && currentPressure < 10) {
+            throw TooHighPressure("высокое давление  $currentPressure")
+        } else if (currentPressure <= 0 || currentPressure >= 10) {
+            throw IncorrectPressure("неправильное давление  $currentPressure")
+        } else if (currentPressure in 1.5..3.0) {
+            println("давление $currentPressure номальное")
         }
+    }
 
+    private fun checkCurrentPressure() {
+        try {
+            exceptionPressure()
+        } catch (e: IncorrectPressure) {
+            println(e.message)
+        } catch (e: TooHighPressure) {
+            println(e.message)
+        } catch (e: TooLowPressure) {
+            println(e.message)
+        }
     }
 
     override fun toString(): String {
         return "current pressure $currentPressure"
     }
+
 }

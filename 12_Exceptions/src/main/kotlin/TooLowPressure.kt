@@ -1,4 +1,4 @@
-class TooLowPressure: Throwable(message = "слишком низкого давления") {
+class TooLowPressure(message: String): Exception(message) {
 
 }
 
