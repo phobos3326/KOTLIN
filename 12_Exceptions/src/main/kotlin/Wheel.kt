@@ -35,6 +35,9 @@ class Wheel {
     }
 
     private fun checkCurrentPressure() {
+
+
+
         try {
             exceptionPressure()
         } catch (e: IncorrectPressure) {
