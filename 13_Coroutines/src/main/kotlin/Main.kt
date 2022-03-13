@@ -6,23 +6,22 @@ fun main() = runBlocking {
 
 //    val data = async(Dispatchers.Default) {
 
-   launch(Dispatchers.Default) {
+    /*launch(Dispatchers.Default) {
 
 
-            val a = 10000
-            val j = 1..a
-            for (i in j) {
+        val a = 10000
+        val j = 1..a
+        for (i in j) {
 
-                fib2.take(i)
+            fib2.take(i)
 
-            }
+        }
 
-            println("coroutine 00   ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 1000F}")
-       println("${fib2.cache[a]}")
-      //  println("coroutine 00 $result")
+        println("coroutine 00   ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 1000F}")
+        println("${fib2.cache[a]}")
+        //  println("coroutine 00 $result")
 
-    }
-
+    }*/
 
 
     // display(result.toString())
@@ -30,30 +29,38 @@ fun main() = runBlocking {
     //job.cancel()
 
 
-    coroutineScope {
-        launch {
+   /* CoroutineScope(Dispatchers.Default).launch {
+
             val time = (System.currentTimeMillis() - start) / 10000f
             if (time > 0.009) {
                 currentCoroutineContext().cancel()
             } else {
-                println("coroutine 1  ${Fib.takeIter(1000)} ${Thread.currentThread().name}   $time")
+                println("coroutine 1  ${Fib.takeIter(10)} ${Thread.currentThread().name}   $time")
             }
-        }
-    }
-    coroutineScope {
-        launch {
-            println("coroutine 2  ${Fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
+
+           // if(coroutineContext.isActive)
+           Fib.takeIter(10)
+
+
+    }*/
+
+ val job= launch(Dispatchers.Default) {
+    Fib.takeIter(10)
+       // println("coroutine 2  ${Fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
 
     }
+
+
     coroutineScope {
         launch {
-            println("coroutine 3  ${Fib.takeIter(50000)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
+           Fib.takeIter(100)
+           // println("coroutine 3  ${Fib.takeIter(500)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
         }
     }
 
     println()
 }
-}
+
 
 enum class Fibonacci {
     ITERATIVE {
