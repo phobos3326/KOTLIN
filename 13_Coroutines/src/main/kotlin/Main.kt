@@ -1,88 +1,91 @@
-import com.sun.tools.javac.Main
 import kotlinx.coroutines.*
 import java.math.BigInteger
 
-suspend fun main() {
+fun main() = runBlocking {
     val start = System.currentTimeMillis()
 
-    coroutineScope {
+//    val data = async(Dispatchers.Default) {
 
-        launch {
+   launch(Dispatchers.Default) {
+
+
             val a = 10000
             val j = 1..a
             for (i in j) {
-                fib2.take(i)
-            }
-            println(fib2.cache[a])
-            println("coroutine 00   ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 1000F}")
-        }
 
+                fib2.take(i)
+
+            }
+
+            println("coroutine 00   ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 1000F}")
+       println("${fib2.cache[a]}")
+      //  println("coroutine 00 $result")
+
+    }
+
+
+
+    // display(result.toString())
+    //println("принт ЛН  $")
+    //job.cancel()
+
+
+    coroutineScope {
         launch {
-            val time = (System.currentTimeMillis() - start) / 10000F
+            val time = (System.currentTimeMillis() - start) / 10000f
             if (time > 0.009) {
                 currentCoroutineContext().cancel()
-            }else{
-                println("coroutine 1  ${fib.takeIter(10)} ${Thread.currentThread().name}   $time")
+            } else {
+                println("coroutine 1  ${Fib.takeIter(1000)} ${Thread.currentThread().name}   $time")
             }
         }
-
+    }
+    coroutineScope {
         launch {
-            println("coroutine 2  ${fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
-        }
+            println("coroutine 2  ${Fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
 
+    }
+    coroutineScope {
         launch {
-            println("coroutine 3  ${fib.takeIter(50000)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
+            println("coroutine 3  ${Fib.takeIter(50000)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
         }
     }
+
+    println()
 }
-
-
-fun fi11b(number: Int): Long {
-
-
-    //val n = 10
-    val arr = LongArray(number + 1)
-    arr[0] = 0
-    arr[1] = 1
-
-    for (i in 2 until number)
-        arr[i] = arr[i - 1] + arr[i - 2]
-    return arr.maxOf { it }.toLong()
-
 }
 
 enum class Fibonacci {
-    /*  ITERATIVE {
-          override fun get(n: Int): BigInteger = if (n < 2) {
-              n.toBigInteger()
-          } else {
-              var n1 = BigInteger("0")
-              var n2 = BigInteger("1")
-              repeat(n) {
-                  val sum = n1 + n2
-                  n1 = n2
-                  n2 = sum
-              }
-              n1
-          }
-      },*/
-    /*RECURSIVE {
-        override fun get(n: Int):BigInteger {
+    ITERATIVE {
+        override fun get(n: Int): BigInteger = if (n < 2) {
+            n.toBigInteger()
+        } else {
+            var n1 = BigInteger("0")
+            var n2 = BigInteger("1")
+            repeat(n) {
+                val sum = n1 + n2
+                n1 = n2
+                n2 = sum
+            }
+            n1
+        }
+    },
+    RECURSIVE {
+        override fun get(n: Int): BigInteger {
             return if (n < 2) {
                 n.toBigInteger()
             } else {
                 this[n - 1] + this[n - 2]
             }
         }
-    },*/
+    },
     CACHING {
         var a = 0
         var b = 1
         private val cache: MutableMap<Int, BigInteger> = mutableMapOf(0 to a.toBigInteger(), 1 to b.toBigInteger())
         override fun get(n: Int): BigInteger = if (n < 2) n.toBigInteger() else impl(n)
         private fun impl(n: Int): BigInteger = cache.computeIfAbsent(n) { impl(it - 1) + impl(it - 2) }
-    },
-    ;
+    };
 
     abstract operator fun get(n: Int): BigInteger
 }
@@ -96,6 +99,7 @@ enum class Fibonacci {
         }
         println()
     }
+}
 }*/
 
 
@@ -145,3 +149,19 @@ fun main(args: Array<String>) {
         }
     }
 }*/
+/*
+fun main() = runBlocking {
+
+    val job = launch {
+        repeat(1000) { i ->
+            println("job: I'm sleeping $i ...")
+            delay(500L)
+        }
+    }
+    delay(10000L) // delay a bit
+    println("main: I'm tired of waiting!")
+    job.cancelAndJoin()// cancels the job
+   // job.join() // waits for job's completion
+    println("main: Now I can quit.")
+}
+*/
