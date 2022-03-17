@@ -1,5 +1,10 @@
+
+
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.Channel
 import java.math.BigInteger
+
+
 
 fun main() = runBlocking {
     val start = System.currentTimeMillis()
@@ -29,32 +34,38 @@ fun main() = runBlocking {
     //job.cancel()
 
 
-   /* CoroutineScope(Dispatchers.Default).launch {
+    /* CoroutineScope(Dispatchers.Default).launch {
 
-            val time = (System.currentTimeMillis() - start) / 10000f
-            if (time > 0.009) {
-                currentCoroutineContext().cancel()
-            } else {
-                println("coroutine 1  ${Fib.takeIter(10)} ${Thread.currentThread().name}   $time")
-            }
+             val time = (System.currentTimeMillis() - start) / 10000f
+             if (time > 0.009) {
+                 currentCoroutineContext().cancel()
+             } else {
+                 println("coroutine 1  ${Fib.takeIter(10)} ${Thread.currentThread().name}   $time")
+             }
 
-           // if(coroutineContext.isActive)
-           Fib.takeIter(10)
+            // if(coroutineContext.isActive)
+            Fib.takeIter(10)
 
 
-    }*/
+     }*/
 
- val job= launch(Dispatchers.Default) {
-    Fib.takeIter(10)
-       // println("coroutine 2  ${Fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
-
+   launch(Dispatchers.Default) {
+        //Fib.checkExeption(999)
+        println("${(System.currentTimeMillis() - start) / 1000F} ${Fib.takeIter(10_000)}")
+        // println("coroutine 2  ${Fib.takeIter(100)}${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
+        // return@launch
     }
 
 
     coroutineScope {
         launch {
-           Fib.takeIter(100)
-           // println("coroutine 3  ${Fib.takeIter(500)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
+            //Fib.checkExeption(100)
+            withTimeout(1000) {
+                println("${(System.currentTimeMillis() - start) / 1000F}  ${Fib.takeIter(100_000)}")
+                cancel()
+            }
+
+            // println("coroutine 3  ${Fib.takeIter(500)}  ${Thread.currentThread().name}   ${(System.currentTimeMillis() - start) / 10000F}")
         }
     }
 
@@ -172,3 +183,20 @@ fun main() = runBlocking {
     println("main: Now I can quit.")
 }
 */
+
+
+
+    fun main11() {
+        println(fibonacci.take(1000).toList())
+    }
+
+val fibonacci = sequence {
+    var cur = 1
+    var next = 1
+    while (true) {
+        yield(cur)
+        val tmp = cur + next
+        cur = next
+        next = tmp
+    }
+}
