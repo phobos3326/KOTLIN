@@ -2,23 +2,43 @@ import kotlinx.coroutines.*
 
 
 suspend fun main() {
+
     val start = System.currentTimeMillis()
     coroutineScope {
-        val job = async(Dispatchers.IO) {
-            val a = Fib.takeIter(100000)
-            return@async a
+        val job = async(Dispatchers.Default) {
+            return@async Fib.takeIter(100)
         }
         val job2 = async(Dispatchers.Default) {
-            val resss = withTimeout(500L) {
-                val b = Fib.takeIter(100000)
-                return@withTimeout b
-            }
-            return@async resss
+            return@async Fib.takeIter(500000)
         }
-        launch {
+
+        val indicatorJob = launch {
             while (true) {
                 delay(100)
                 print(".")
+                if (job.isCompleted || job2.isCompleted) {
+                    job.cancel()
+                    job2.cancel()
+                }
+            }
+        }
+
+        try {
+            withTimeout(1) {
+                job2.await()
+                job.await()
+                indicatorJob.cancel()
+            }
+        } catch (e: CancellationException) {
+            job2.cancel()
+            job.cancel()
+            indicatorJob.cancel()
+            println("error")
+        }
+
+        launch {
+            while (true) {
+                delay(100)
                 if (job.isCompleted) {
                     val result = job.await()
                     println()
@@ -36,5 +56,6 @@ suspend fun main() {
         }
     }
 }
+
 
 
