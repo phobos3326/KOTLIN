@@ -4,15 +4,15 @@ import kotlinx.coroutines.flow.*
 fun main() = runBlocking {
 
 
-    val gamer1 = Gamer()
+    val gamer1 = Gamer().createGamer()
     gamer1.createGamer()
     val gamer2 = Gamer()
     gamer2.createGamer()
 
     val a = gamer1.takeCard(2)
     val b = gamer2.takeCard(2)
+gamer1.infoList()
 
-b.forEach { it.createCard() }
 
     //gamer1.infoList()
 
