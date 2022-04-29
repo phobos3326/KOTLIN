@@ -83,24 +83,23 @@ class LottoCard {
         }
 
         for (i in 0 until listOfRowInCard.size) {
-            val ss = listOfRowInCard[i].listOfCellInRow
+            val row = listOfRowInCard[i].listOfCellInRow
             var count = 0
             while (count < 4) {
                 val rnd = Random.nextInt(0, 8)
                 listOfRowInCard[i].listOfCellInRow[rnd].value = "  "
-                count = ss.count { s -> (s.value == "  ") }
+                count = row.count { s -> (s.value == "  ") }
             }
-           // listOfRowInCard.forEach { println(it.listOfCellInRow.joinToString( separator="|")) }
         }
         return listOfRowInCard
     }
 
-    fun viewCard(){
-        listOfRowInCard.forEach { println(it.listOfCellInRow.joinToString( separator=" |")) }
+    fun viewCard() {
+        listOfRowInCard.forEach { println(it.listOfCellInRow.joinToString(separator = " |")) }
         println()
     }
 
-    fun info(){
+    fun info() {
         listOfRowInCard.forEach { println("${it.listOfCellInRow}") }
     }
 
