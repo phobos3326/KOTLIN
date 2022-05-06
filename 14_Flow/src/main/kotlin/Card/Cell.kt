@@ -3,7 +3,7 @@ package Card
 class Cell {
     var isChecked = false
 
-    var value: Any? = null
+    var cellValue: Any? = null
 
 
 
@@ -12,9 +12,9 @@ class Cell {
     }
 
     override fun toString(): String {
-        /* if (isChecked) {
-             value = "x"
-         }*/
-        return "$value".padStart(3).padEnd(3)
+         if (isChecked) {
+             cellValue = "xxx"
+         }
+        return "$cellValue".padStart(3).padEnd(3)
     }
 }
