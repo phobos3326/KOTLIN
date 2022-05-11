@@ -2,40 +2,55 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 
 suspend fun main() = coroutineScope {
+    //  val gamer: Gamer? = null
 
-
-    val listOfJob = mutableListOf<Gamer>()
+    val listOfGamers = mutableListOf<Gamer>()
     for (i in 1..2) {
         //println("gamer $i")
         //val start = System.currentTimeMillis()
-        val gamer = Gamer()
-        gamer.gamerCount+=i
+        var gamer = Gamer()
+        gamer.gamerCount += i
         gamer.takeCard(2)
         gamer.info()
         println("__________")
 
-        listOfJob.add(gamer)
+        listOfGamers.add(gamer)
+
+
+
+        listOfGamers.forEach {
+
+            val job = launch {
+                it.checkCard(load())
+                if (gamer.count == 5) {
+                    //awaitAll()
+                    // gamer.mainScope.cancel()
+
+                    coroutineContext.job.cancel()
+                    cancel()
+
+                }
+                gamer.info()
+            }
+            job.join()
+            gamer.info()
+        }
 
     }
 
     //val a = load()
 
-        listOfJob.forEach {
-            launch {
-                it.checkCard(load()) }
-            }
 
-        println()
+    println()
 
 
 }
 
 
-
 fun load(): Flow<Int> {
     val ff = flow {
-        while (true){
-            val rnds = (1 .. 90).random()
+        while (true) {
+            val rnds = (1..90).random()
             emit(rnds)
         }
 
