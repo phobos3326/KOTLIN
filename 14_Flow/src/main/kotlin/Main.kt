@@ -9,7 +9,7 @@ suspend fun main() = coroutineScope {
         //println("gamer $i")
         //val start = System.currentTimeMillis()
         val gamer = Gamer()
-        gamer.gamerCount+=i
+        gamer.gamerCount += i
         gamer.takeCard(2)
         gamer.info()
         println("__________")
@@ -20,23 +20,31 @@ suspend fun main() = coroutineScope {
 
     //val a = load()
 
-        listOfJob.forEach {
-            launch {
-                it.checkCard(load()) }
-            }
+    listOfJob.forEach {
+        launch {
 
-        println()
+            it.checkCard(load())
+            it.info()
+            if (it.count == 5) cancel()
+        }
+    }
+    println()
 
 
 }
 
 
-
 fun load(): Flow<Int> {
+    var tmpList = mutableListOf<Int>()
+
     val ff = flow {
-        while (true){
-            val rnds = (1 .. 90).random()
-            emit(rnds)
+        while (true) {
+            val rnds = (1..90).random()
+            if (!tmpList.contains(rnds)) {
+                tmpList.add(rnds)
+                emit(rnds)
+            }
+
         }
 
     }.flowOn(Dispatchers.Default)

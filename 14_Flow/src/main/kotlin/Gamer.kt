@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.takeWhile
 import kotlin.coroutines.coroutineContext
 
 class Gamer {
+
     var gamerCount = 0
     val mainScope = CoroutineScope(Dispatchers.Default)
     var listOfLottoCard = mutableListOf<LottoCard>()
@@ -15,24 +16,24 @@ class Gamer {
 
     suspend fun takeCard(numberOfCards: Int) {
         val start = System.currentTimeMillis()
-        coroutineScope {
+        // coroutineScope {
 
-            async(Dispatchers.Default) {
-                for (i in 1..numberOfCards) {
-                    val lottoCard = LottoCard()
-                    lottoCard.createCard()
-                    listOfLottoCard.add(lottoCard)
-                }
-
-                println(
-                    "(on ${Thread.currentThread().name}) " +
-                            "after ${(System.currentTimeMillis() - start) / 1000F}s"
-                )
-                // return@async Gamer()
-            }
-            //delay(2000)
+        //  async(Dispatchers.Default) {
+        for (i in 1..numberOfCards) {
+            val lottoCard = LottoCard()
+            lottoCard.createCard()
+            listOfLottoCard.add(lottoCard)
         }
+
+        println(
+            "(on ${Thread.currentThread().name}) " +
+                    "after ${(System.currentTimeMillis() - start) / 1000F}s"
+        )
+        // return@async Gamer()
     }
+    //delay(2000)
+    //     }
+
 
     /*   suspend fun createGamer(): Gamer {
            return coroutineScope {
@@ -47,27 +48,33 @@ class Gamer {
        }*/
 
 
-   suspend fun info() = runBlocking {
+    suspend fun info() {
+        coroutineScope {
+            launch {
+                listOfLottoCard.forEach {
+                    println("gamer $gamerCount")
+                    it.viewCard()
 
-        listOfLottoCard.forEach {
-            println("gamer $gamerCount")
-            it.viewCard()
+                }
+
+            }
 
         }
-       joinAll()
+
+        // joinAll()
     }
 
     suspend fun checkCard(flow: Flow<Int>) {
 
         val tempArray = mutableListOf<Int>()
         val start = System.currentTimeMillis()
-        val scope = coroutineScope {
-            //mainScope.launch {
+     //  coroutineScope {
+       //launch {
 
             val ff = flow
 
 
-            val job = async {
+          //  val job = async {
 
                 ff.buffer()
                 //ff.onEach { currentCoroutineContext().ensureActive() }
@@ -79,22 +86,23 @@ class Gamer {
                             count = row.count { cell -> (cell.cellValue == "<>") }
                             it.listOfCellInRow.forEach { cell ->
 
-                                if (cell.cellValue == flowValue && !tempArray.contains(flowValue)) {
 
-                                    tempArray.add(flowValue)
+                                if (cell.cellValue == flowValue) {
+
+                                    // tempArray.add(flowValue)
                                     println("flow value $flowValue")
                                     cell.cellValue = "<>"
 
                                     //flow.takeWhile { count == 5 }
                                     //joinAll()
 
-
-                                } else if (count == 5) {
-
+                                    info()
+                                }/* else if (count == 5) {
+info()
                                    // joinAll()
                                     cancel()
 
-                                }
+                                }*/
 
                             }
                         }
@@ -106,32 +114,9 @@ class Gamer {
                 }
 
 
-                /*  listOfLottoCard.forEach { lottoCard ->
-                      lottoCard.listOfRowInCard.forEach { row: Row ->
-                          // var count: Int
-                          val row = row.listOfCellInRow
-                          var count = row.count { cell -> (cell.cellValue == "X") }
-                          if (count == 5) {
-                              cancel()
-                          }
-                      }
-                  }*/
-
-
-                /*     for (i in 0 until listOfLottoCard.size){
-                         val card = listOfLottoCard[i].listOfRowInCard
-                         var count =0
-                         count = row.count { cell -> (cell.cellValue == "  ") }
-                         if (count==5){
-
-                         }
-                     }
-                     */
-
-                return@async
             }
 
-
+            // if (count == 5) job.cancel()
 
             /*launch {
 
@@ -140,17 +125,17 @@ class Gamer {
 //                job.await()
                 info()
             }*/
+            //return@launch
+      //  }
 
-        }
-
-
+      /*  info()
         println(
             "(on ${Thread.currentThread().name}) " +
-                    "after ${(System.currentTimeMillis() - start) / 1000F}s"
+                    "after ${(System.currentTimeMillis() - start) / 1000F}s"*/
 
-        )
+      //  )
         // return coroutineContext.job
-    }
+    //}
 
     fun destroy() {
         if (count == 5) {
