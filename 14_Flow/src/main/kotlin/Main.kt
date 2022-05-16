@@ -43,6 +43,7 @@ fun load(): Flow<Int> {
             if (!tmpList.contains(rnds)) {
                 tmpList.add(rnds)
                 emit(rnds)
+
             }
 
         }
