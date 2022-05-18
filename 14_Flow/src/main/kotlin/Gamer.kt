@@ -14,11 +14,9 @@ class Gamer {
     var count = 0
 
 
-    suspend fun takeCard(numberOfCards: Int) {
+     fun takeCard(numberOfCards: Int) {
         val start = System.currentTimeMillis()
-        // coroutineScope {
 
-        //  async(Dispatchers.Default) {
         for (i in 1..numberOfCards) {
             val lottoCard = LottoCard()
             lottoCard.createCard()
@@ -29,10 +27,8 @@ class Gamer {
             "(on ${Thread.currentThread().name}) " +
                     "after ${(System.currentTimeMillis() - start) / 1000F}s"
         )
-        // return@async Gamer()
     }
-    //delay(2000)
-    //     }
+
 
 
 
@@ -54,7 +50,7 @@ class Gamer {
         // joinAll()
     }
 
-    suspend fun checkCard(flow: Flow<Int>) {
+   /* suspend fun checkCard(flow: Int) {
 
         val tempArray = mutableListOf<Int>()
         val start = System.currentTimeMillis()
@@ -108,25 +104,71 @@ class Gamer {
 
             // if (count == 5) job.cancel()
 
-            /*launch {
+            *//*launch {
 
 
                 job.join()
 //                job.await()
                 info()
-            }*/
+            }*//*
             //return@launch
         }
 
-        /*  info()
+        *//*  info()
           println(
               "(on ${Thread.currentThread().name}) " +
-                      "after ${(System.currentTimeMillis() - start) / 1000F}s"*/
+                      "after ${(System.currentTimeMillis() - start) / 1000F}s"*//*
 
         //  )
         // return coroutineContext.job
         info()
-    }
+    }*/
+
+
+
+    suspend fun checkCard(flow: Int) {
+
+        val tempArray = mutableListOf<Int>()
+        val start = System.currentTimeMillis()
+
+                    // flow.takeWhile { count == 5 }
+                    listOfLottoCard.forEach { lottoCard ->
+                        lottoCard.listOfRowInCard.forEach {
+                            val row = it.listOfCellInRow
+                            count = row.count { cell -> (cell.cellValue == "<>") }
+                            it.listOfCellInRow.forEach { cell ->
+
+
+                                if (cell.cellValue == flow) {
+
+                                    // tempArray.add(flowValue)
+                                    println("flow value $flow")
+                                    cell.cellValue = "<>"
+
+                                    //flow.takeWhile { count == 5 }
+                                    //joinAll()
+
+                                //    info()
+
+
+                            }
+                        }
+
+                        //delay(2)
+
+                    }
+
+                }
+
+
+            }
+
+
+
+
+
+
+
 
     fun destroy() {
         if (count == 5) {
