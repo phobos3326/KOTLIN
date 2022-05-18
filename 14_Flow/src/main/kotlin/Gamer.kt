@@ -35,31 +35,21 @@ class Gamer {
     //     }
 
 
-    /*   suspend fun createGamer(): Gamer {
-           return coroutineScope {
-               val start = System.currentTimeMillis()
-               println(
-                   "(on ${Thread.currentThread().name}) " +
-                           "after ${(System.currentTimeMillis() - start) / 1000F}s"
-               )
-               return@coroutineScope Gamer()
-           }
-
-       }*/
 
 
-    suspend fun info() {
-        coroutineScope {
-            launch {
-                listOfLottoCard.forEach {
-                    println("gamer $gamerCount")
-                    it.viewCard()
 
-                }
+    fun info() {
+        // coroutineScope {
+        // launch {
+        listOfLottoCard.forEach {
+            println("gamer $gamerCount")
+            it.viewCard()
 
-            }
+            //}
 
         }
+
+        // }
 
         // joinAll()
     }
@@ -68,13 +58,13 @@ class Gamer {
 
         val tempArray = mutableListOf<Int>()
         val start = System.currentTimeMillis()
-     //  coroutineScope {
-       //launch {
+        coroutineScope {
+            launch {
 
-            val ff = flow
+                val ff = flow
 
 
-          //  val job = async {
+                //  val job = async {
 
                 ff.buffer()
                 //ff.onEach { currentCoroutineContext().ensureActive() }
@@ -97,12 +87,12 @@ class Gamer {
                                     //joinAll()
 
                                     info()
-                                }/* else if (count == 5) {
-info()
-                                   // joinAll()
+                                } else if (count == 5) {
+
+                                     joinAll()
                                     cancel()
 
-                                }*/
+                                }
 
                             }
                         }
@@ -126,16 +116,17 @@ info()
                 info()
             }*/
             //return@launch
-      //  }
+        }
 
-      /*  info()
-        println(
-            "(on ${Thread.currentThread().name}) " +
-                    "after ${(System.currentTimeMillis() - start) / 1000F}s"*/
+        /*  info()
+          println(
+              "(on ${Thread.currentThread().name}) " +
+                      "after ${(System.currentTimeMillis() - start) / 1000F}s"*/
 
-      //  )
+        //  )
         // return coroutineContext.job
-    //}
+        info()
+    }
 
     fun destroy() {
         if (count == 5) {

@@ -1,5 +1,4 @@
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.*
 
 suspend fun main() = coroutineScope {
 
@@ -20,35 +19,20 @@ suspend fun main() = coroutineScope {
 
     //val a = load()
 
-    listOfJob.forEach {
+    /*listOfJob.forEach {
         launch {
 
-            it.checkCard(load())
+            it.checkCard(Bag.getLottoFlow)
             it.info()
-            if (it.count == 5) cancel()
+            if (it.count == 5)
+                joinAll()
+                cancel()
+
         }
     }
     println()
-
-
-}
-
-
-fun load(): Flow<Int> {
-    var tmpList = mutableListOf<Int>()
-
-    val ff = flow {
-        while (true) {
-            val rnds = (1..90).random()
-            if (!tmpList.contains(rnds)) {
-                tmpList.add(rnds)
-                emit(rnds)
-
-            }
-
-        }
-
-    }.flowOn(Dispatchers.Default)
-    return ff
+    listOfJob.forEach { gamer -> gamer.info() }*/
 
 }
+
+
