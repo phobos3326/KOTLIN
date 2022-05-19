@@ -52,19 +52,15 @@ class Gamer {
         }
     }
 
-    suspend fun checkWin() {
-        coroutineScope {
-            launch {
-                listOfLottoCard.forEach {
-                    it.listOfRowInCard.forEach { row ->
-                        row.checkRow()
-                        if (row.rowCheck) {
-                            winCard = true
-                            println("карта выиграла")
-                            delay(100)
-                            info()
-                        }
-                    }
+     fun checkWin() {
+
+        listOfLottoCard.forEach {
+            it.listOfRowInCard.forEach { row ->
+                row.checkRow()
+                if (row.rowCheck) {
+                    winCard = true
+                    println("карта выиграла")
+                    info()
                 }
             }
         }

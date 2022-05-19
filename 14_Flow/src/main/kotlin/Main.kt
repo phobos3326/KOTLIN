@@ -23,7 +23,6 @@ suspend fun main() = coroutineScope {
                 if (gamer.winCard) {
                     cancel()
                 }
-                //gamer.info()
             }
         }
         delay(100)
