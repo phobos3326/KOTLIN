@@ -2,12 +2,9 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.NonCancellable.cancel
 
 suspend fun main() = coroutineScope {
-
-
     val listOfJob = mutableListOf<Gamer>()
     for (i in 1..2) {
-        //println("gamer $i")
-        //val start = System.currentTimeMillis()
+
         val gamer = Gamer()
         gamer.gamerCount += i
         gamer.takeCard(2)
@@ -23,18 +20,14 @@ suspend fun main() = coroutineScope {
             listOfJob.forEach { gamer ->
                 gamer.checkCard(it)
                 gamer.checkWin()
-                if (gamer.winCard){
+                if (gamer.winCard) {
                     cancel()
                 }
-                    //gamer.info()
+                //gamer.info()
             }
-
         }
-delay(100)
+        delay(100)
     }
-
-
-
     println()
 }
 

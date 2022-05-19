@@ -8,7 +8,6 @@ class Gamer {
     var listOfLottoCard = mutableListOf<LottoCard>()
 
 
-
     fun takeCard(numberOfCards: Int) {
         val start = System.currentTimeMillis()
 
@@ -38,10 +37,6 @@ class Gamer {
         println("________________")
         coroutineScope {
             launch {
-
-                val tempArray = mutableListOf<Int>()
-                val start = System.currentTimeMillis()
-
                 listOfLottoCard.forEach { lottoCard ->
                     lottoCard.listOfRowInCard.forEach {
 
@@ -60,7 +55,6 @@ class Gamer {
     suspend fun checkWin() {
         coroutineScope {
             launch {
-                var count = 0
                 listOfLottoCard.forEach {
                     it.listOfRowInCard.forEach { row ->
                         row.checkRow()
@@ -74,10 +68,6 @@ class Gamer {
                 }
             }
         }
-
-
     }
-
-
 }
 
