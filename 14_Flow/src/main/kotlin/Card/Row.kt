@@ -1,9 +1,17 @@
 package Card
 
-import Card.Cell
-
 class Row {
+    var rowCheck = false
+    var countCell = 0
     var listOfCellInRow = mutableListOf<Cell>()
+
+    fun checkRow() {
+        countCell = listOfCellInRow.count { cell -> (cell.cellValue == "<>") }
+        if (countCell == 5) {
+            rowCheck = true
+        }
+    }
+
 
     val cell = Cell().createCell()
     fun createRow(): MutableList<Cell> {
